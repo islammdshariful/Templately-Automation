@@ -25,7 +25,6 @@ class HomePageLocators:
     how_it_works_close_btn = (By.XPATH, f'/html/body/div[5]/div/div/div[1]/span')
 
     # Insight
-
     total_template = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[1]/div[2]/div/div/div/div[1]/div'
                                 f'/div[2]/h4/div')
     total_template_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[1]/div[2]/div/div/div/div[1]'
@@ -76,113 +75,6 @@ class HomePageLocators:
     wp_ready_to_import_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[2]/div/h4')
     wp_wordpress_template_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[2]/div/h3')
 
-    # Building With Cloud
-    bwc_the_feature_of_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[1]/h4')
-    bwc_building_with_cloud_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[1]/h3')
-
-    bwc_item_1_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[1]/div/div/object'
-    bwc_item_1_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[1]/div/h4')
-    bwc_item_1_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[1]/div/p')
-    bwc_item_2_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[2]/div/div/object'
-    bwc_item_2_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[2]/div/h4')
-    bwc_item_2_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[2]/div/p')
-    bwc_item_3_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[3]/div/div/object'
-    bwc_item_3_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[3]/div/h4')
-    bwc_item_3_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[3]/div/p')
-    bwc_item_4_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[4]/div/div/object'
-    bwc_item_4_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[4]/div/h4')
-    bwc_item_4_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[4]/div/p')
-    bwc_item_5_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[5]/div/div/object'
-    bwc_item_5_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[5]/div/h4')
-    bwc_item_5_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[5]/div/p')
-    bwc_item_6_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[6]/div/div/object'
-    bwc_item_6_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[6]/div/h4')
-    bwc_item_6_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[6]/div/p')
-
-    # License
-    license_unl_tem_label = (By.XPATH, f'//*[@id="pricing"]/div/div[1]/h2[1]')
-    license_unl_tem_des = (By.XPATH, f'//*[@id="pricing"]/div/div[1]/h2[2]')
-
-    monthly_toggle = (By.XPATH, f'//*[@id="pricing"]/div/div[2]/div/button[1]')
-    annual_toggle = (By.XPATH, f'//*[@id="pricing"]/div/div[2]/div/button[2]')
-
-    mon_sta_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[2]/div[2]/h5')
-    mon_sta_icon = f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[2]/div[1]/i'
-    mon_sta_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[2]/div[2]/p/del')
-    mon_sta_disc_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[2]/div[2]/p/span')
-    mon_sta_temp_items = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/p/a')
-    mon_sta_temp_items_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/p')
-    mon_sta_list_1 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/ul/li[1]')
-    mon_sta_list_1_icon = f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/ul/li[1]/i'
-    mon_sta_list_2 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/ul/li[2]')
-    mon_sta_list_2_icon = f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/ul/li[2]/i'
-    mon_sta_list_3 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/ul/li[3]')
-    mon_sta_list_3_icon = f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/ul/li[3]/i'
-    mon_sta_get_started_btn = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[4]/a/span')
-
-    mon_prem_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[2]/div[2]/h5')
-    mon_prem_icon = f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[2]/div[1]/i'
-    mon_prem_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[2]/div[2]/p/del')
-    mon_prem_disc_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[2]/div[2]/p/span')
-    mon_prem_temp_items = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/p[1]/a')
-    mon_prem_temp_items_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/p[1]')
-    mon_prem_pro_temp_items = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/p[2]/a')
-    mon_prem_pro_temp_items_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/p[2]')
-    mon_prem_list_1 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/ul/li[1]')
-    mon_prem_list_1_icon = f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/ul/li[1]/i'
-    mon_prem_list_2 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/ul/li[2]')
-    mon_prem_list_2_icon = f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/ul/li[2]/i'
-    mon_prem_get_started_btn = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[4]/a')
-
-    ann_prem_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[2]/div[2]/p/del')
-    ann_prem_disc_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[2]/div[2]/p/span')
-
-    lftm_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[1]/div[2]/h5')
-    lftm_icon = f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[1]/div[1]/i'
-    lftm_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[1]/div[2]/p/del')
-    lftm_disc_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[1]/div[2]/p/span')
-    lftm_temp_items = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/p[1]/a')
-    lftm_temp_items_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/p[1]')
-    lftm_pro_temp_items = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/p[2]/a')
-    lftm_pro_temp_items_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/p[2]')
-    lftm_list_1 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/ul/li[1]')
-    lftm_list_1_icon = f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/ul/li[1]/i'
-    lftm_list_2 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/ul/li[2]')
-    lftm_list_2_icon = f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/ul/li[2]/i'
-    lftm_get_started_btn = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[1]/div[2]/div/a/span')
-    lftm_des = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[1]/div[2]/small')
-
-
-class HomePageTexts:
-    # Header
-    title_txt = 'Templately - The Best Elementor Templates for WordPress & Cloud WorkSpace for 2021'
-    video_source_txt = "https://assets.templately.com/frontend/Landing%20Page%20Intro%20V2.0.mp4"
-    header_txt = "Ultimate\nTEMPLATES\nCloud for WordPress"
-
-    # Insight
-    total_template_label_txt = "TOTAL TEMPLATES"
-    total_pack_label_txt = "TOTAL PACKS"
-    happy_users_label_txt = "HAPPY USERS"
-    happy_users_txt = "100,000+"
-
-    # Could Wordspace
-    cw_label_txt = "Cloud Workspace"
-    cw_my_cloud_label_txt = "My Cloud"
-    cw_my_cloud_des_txt = "Save & store your page templates on MyCloud to reuse it whenever you need"
-
-    cw_workspace_label_txt = "WorkSpace"
-    cw_workspace_des_txt = "Invite your team members & work together to build website faster than ever before"
-    cw_video_source_txt = "https://assets.templately.com/frontend/Cloud%20IntroV2.mp4"
-
-    # Feature Items
-    fi_label_txt = "Featured Items"
-
-    # Trending Items
-    tre_items_label_txt = "Trending Items"
-
-    # WordPress Templates
-    wp_ready_to_import_label_txt = "READY TO IMPORT"
-    wp_wordpress_template_label_txt = "WordPress Templates"
     wp_filter_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[1]/h6')
     wp_filter_menu_hide = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[1]'
                                      f'/button/i')
@@ -194,6 +86,12 @@ class HomePageTexts:
                                    f'/div[1]/button[2]')
     wp_filter_pro = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]/div[1]'
                                f'/button[3]')
+    # Top filter
+    wp_applied_filter_top_result_1 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+                                                f'/div[2]/div[2]/div/span/span')
+    wp_applied_filter_top_result_1_cancel_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]'
+                                                           f'/div/div/div[2]/div[2]/div/span/button/i')
+
     # Filter By Blocks
     wp_filter_blocks_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
                                         f'/div[2]/div[1]/div[1]/h5')
@@ -302,19 +200,14 @@ class HomePageTexts:
                                                     f'/div[2]/div[2]/div/span[2]')
     wp_applied_filter_popular_result_2_cancel_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]'
                                                                f'/div[3]/div/div/div[2]/div[2]/div/span[2]/button/i')
-    wp_applied_filter_cancel_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
-                                              f'/div[2]/div/button')
-    # Top filter
-    wp_applied_filter_top_result_1 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
-                                                f'/div[2]/div[2]/div/span/span')
-    wp_applied_filter_top_result_1_cancel_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]'
-                                                           f'/div/div/div[2]/div[2]/div/span/button/i')
+    wp_applied_filter_clear_all_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+                                                 f'/div[2]/div[2]/div/button')
 
     # Search Filter Result Sort
     wp_applied_filter_sort_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
                                               f'/div[2]/span[2]/span[1]')
-    wp_applied_filter_sort_select = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
-                                               f'/div[2]/span[2]/span[2]')
+    wp_applied_filter_sort_select = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+                                               f'/div[2]/div[2]/span[2]/span[2]/button')
     wp_applied_filter_sort_select_select = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]'
                                                       f'/div/div/div[2]/div[2]/span[2]/span[2]/ul/li[1]')
     wp_applied_filter_sort_select_most_popular = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]'
@@ -323,6 +216,172 @@ class HomePageTexts:
                                                            f'/div/div/div[2]/div[2]/span[2]/span[2]/ul/li[3]')
     wp_applied_filter_sort_select_latest = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]'
                                                       f'/div/div/div[2]/div[2]/span[2]/span[2]/ul/li[4]')
+
+    # Template information - 1
+    wp_template_1_title = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]/div' \
+                          f'/div/a[2]/h4'
+    wp_template_1_ratings_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
+                                 f'/div[1]/div/div/div/div[1]/button/span[1]/i'
+    wp_template_1_ratings = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]' \
+                            f'/div/div/div/div[1]/button/span[2]'
+    wp_template_1_download_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
+                                  f'/div[1]/div/div/div/div[2]/span[1]/i'
+    wp_template_1_download = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]' \
+                             f'/div/div/div/div[2]/span[2]'
+    wp_template_1_category = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]' \
+                             f'/div/div/div/div[3]/span'
+    wp_template_1_category_on_img = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
+                                    f'/div[1]/div/div/a[1]/div[3]/div[2]'
+
+    # Template information - 2
+    wp_template_2_title = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
+                          f'/div/div/a[2]/h4'
+    wp_template_2_ratings_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
+                                 f'/div[9]/div/div/div/div[1]/button/span[1]/i'
+    wp_template_2_ratings = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
+                            f'/div/div/div/div[1]/button/span[2]'
+    wp_template_2_download_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
+                                  f'/div[9]/div/div/div/div[2]/span[1]/i'
+    wp_template_2_download = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
+                             f'/div/div/div/div[2]/span[2]'
+    wp_template_2_category = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
+                             f'/div/div/div/div[3]/span'
+    wp_template_2_category_on_img = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
+                                    f'/div[9]/div/div/a[1]/div[3]/div[2]'
+
+    # Building With Cloud
+    bwc_the_feature_of_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[1]/h4')
+    bwc_building_with_cloud_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[1]/h3')
+
+    bwc_item_1_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[1]/div/div/object'
+    bwc_item_1_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[1]/div/h4')
+    bwc_item_1_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[1]/div/p')
+    bwc_item_2_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[2]/div/div/object'
+    bwc_item_2_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[2]/div/h4')
+    bwc_item_2_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[2]/div/p')
+    bwc_item_3_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[3]/div/div/object'
+    bwc_item_3_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[3]/div/h4')
+    bwc_item_3_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[3]/div/p')
+    bwc_item_4_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[4]/div/div/object'
+    bwc_item_4_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[4]/div/h4')
+    bwc_item_4_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[4]/div/p')
+    bwc_item_5_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[5]/div/div/object'
+    bwc_item_5_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[5]/div/h4')
+    bwc_item_5_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[5]/div/p')
+    bwc_item_6_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[6]/div/div/object'
+    bwc_item_6_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[6]/div/h4')
+    bwc_item_6_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[6]/div/p')
+
+    # License
+    license_unl_tem_label = (By.XPATH, f'//*[@id="pricing"]/div/div[1]/h2[1]')
+    license_unl_tem_des = (By.XPATH, f'//*[@id="pricing"]/div/div[1]/h2[2]')
+
+    monthly_toggle = (By.XPATH, f'//*[@id="pricing"]/div/div[2]/div/button[1]')
+    annual_toggle = (By.XPATH, f'//*[@id="pricing"]/div/div[2]/div/button[2]')
+
+    mon_sta_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[2]/div[2]/h5')
+    mon_sta_icon = f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[2]/div[1]/i'
+    mon_sta_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[2]/div[2]/p/del')
+    mon_sta_disc_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[2]/div[2]/p/span')
+    mon_sta_temp_items = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/p/a')
+    mon_sta_temp_items_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/p')
+    mon_sta_list_1 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/ul/li[1]')
+    mon_sta_list_1_icon = f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/ul/li[1]/i'
+    mon_sta_list_2 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/ul/li[2]')
+    mon_sta_list_2_icon = f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/ul/li[2]/i'
+    mon_sta_list_3 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/ul/li[3]')
+    mon_sta_list_3_icon = f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[3]/ul/li[3]/i'
+    mon_sta_get_started_btn = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[1]/div/div[4]/a/span')
+
+    mon_prem_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[2]/div[2]/h5')
+    mon_prem_icon = f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[2]/div[1]/i'
+    mon_prem_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[2]/div[2]/p/del')
+    mon_prem_disc_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[2]/div[2]/p/span')
+    mon_prem_temp_items = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/p[1]/a')
+    mon_prem_temp_items_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/p[1]')
+    mon_prem_pro_temp_items = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/p[2]/a')
+    mon_prem_pro_temp_items_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/p[2]')
+    mon_prem_list_1 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/ul/li[1]')
+    mon_prem_list_1_icon = f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/ul/li[1]/i'
+    mon_prem_list_2 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/ul/li[2]')
+    mon_prem_list_2_icon = f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[3]/ul/li[2]/i'
+    mon_prem_get_started_btn = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[4]/a')
+
+    ann_prem_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[2]/div[2]/p/del')
+    ann_prem_disc_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[2]/div/div[2]/div[2]/p/span')
+
+    lftm_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[1]/div[2]/h5')
+    lftm_icon = f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[1]/div[1]/i'
+    lftm_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[1]/div[2]/p/del')
+    lftm_disc_price = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[1]/div[2]/p/span')
+    lftm_temp_items = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/p[1]/a')
+    lftm_temp_items_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/p[1]')
+    lftm_pro_temp_items = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/p[2]/a')
+    lftm_pro_temp_items_label = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/p[2]')
+    lftm_list_1 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/ul/li[1]')
+    lftm_list_1_icon = f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/ul/li[1]/i'
+    lftm_list_2 = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/ul/li[2]')
+    lftm_list_2_icon = f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[2]/ul/li[2]/i'
+    lftm_get_started_btn = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[1]/div[2]/div/a/span')
+    lftm_des = (By.XPATH, f'//*[@id="pricing"]/div/div[3]/div[3]/div/div[1]/div[2]/small')
+
+
+class HomePageTexts:
+    # Header
+    title_txt = 'Templately - The Best Elementor Templates for WordPress & Cloud WorkSpace for 2021'
+    video_source_txt = "https://assets.templately.com/frontend/Landing%20Page%20Intro%20V2.0.mp4"
+    header_txt = "Ultimate\nTEMPLATES\nCloud for WordPress"
+
+    # Insight
+    total_template_label_txt = "TOTAL TEMPLATES"
+    total_pack_label_txt = "TOTAL PACKS"
+    happy_users_label_txt = "HAPPY USERS"
+    happy_users_txt = "100,000+"
+
+    # Could Wordspace
+    cw_label_txt = "Cloud Workspace"
+    cw_my_cloud_label_txt = "My Cloud"
+    cw_my_cloud_des_txt = "Save & store your page templates on MyCloud to reuse it whenever you need"
+
+    cw_workspace_label_txt = "WorkSpace"
+    cw_workspace_des_txt = "Invite your team members & work together to build website faster than ever before"
+    cw_video_source_txt = "https://assets.templately.com/frontend/Cloud%20IntroV2.mp4"
+
+    # Feature Items
+    fi_label_txt = "Featured Items"
+
+    # Trending Items
+    tre_items_label_txt = "Trending Items"
+
+    # WordPress Templates
+    wp_ready_to_import_label_txt = "READY TO IMPORT"
+    wp_wordpress_template_label_txt = "WordPress Templates"
+    wp_filter_label_txt = "Filter & Refine"
+
+    # Filter By Blocks
+    wp_filter_blocks_label_txt = "Pages"
+    # Filter By Pages
+
+    # Filter By Packs
+    wp_filter_packs_label_txt = "Packs"
+
+    # Filter By Tags
+    wp_filter_tags_label_txt = "Tags"
+
+    # Filter By Dependency
+    wp_filter_dependency_label_txt = "Dependency"
+
+    # Search Filtered Result
+    wp_applied_filter_label_txt = "Applied Filters :"
+
+    wp_applied_filter_clear_all_btn_txt = "Clear All"
+
+    # Search Filter Result Sort
+    wp_applied_filter_sort_label_txt = "Sort :"
+    wp_applied_filter_sort_select_select_txt = "Select"
+    wp_applied_filter_sort_select_most_popular_txt = "Most Popular"
+    wp_applied_filter_sort_select_top_ratings_txt = "Top Rating"
+    wp_applied_filter_sort_select_latest_txt = "Latest"
 
     # Building With Cloud
     bwc_the_feature_of_label_txt = "THE FEATURE OF"
@@ -357,7 +416,7 @@ class HomePageTexts:
     mon_prem_price_txt = "$19.99"
     mon_prem_disc_price_txt = "$6.99"
     mon_prem_temp_items_label_txt = "1084 STARTER\nItems"
-    mon_prem_pro_temp_items_label_txt = "720 PRO\nItems"
+    mon_prem_pro_temp_items_label_txt = "732 PRO\nItems"
     mon_prem_list_1_txt = "My Cloud Unlimited Items"
     mon_prem_list_2_txt = "Unlimited WorkSpace"
 
@@ -368,7 +427,7 @@ class HomePageTexts:
     lftm_price_txt = "$999.99"
     lftm_disc_price_txt = "$299.99"
     lftm_temp_items_label_txt = "1084 STARTER\nItems"
-    lftm_pro_temp_items_label_txt = "720 PRO\nItems"
+    lftm_pro_temp_items_label_txt = "732 PRO\nItems"
     lftm_list_1_txt = "My Cloud Unlimited Items"
     lftm_list_2_txt = "Unlimited WorkSpace"
     lftm_des_txt = "Pay Once, Use Forever"

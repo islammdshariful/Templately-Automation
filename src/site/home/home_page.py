@@ -7,10 +7,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from utils.config import *
-from utils.config import *
+from src.site.template.template import Template
 from src.site.home.home_page_locators import HomePageLocators as loc
 from src.site.home.home_page_locators import HomePageTexts as txt
-from src.site.pack.pack_locators import PackLocators as ploc
+from src.site.template.template_locators import TemplateLocators as tloc
 from src.site.browse.browse_locators import BrowseLocators as bloc
 from src.site.browse.browse_locators import BrowseText as btxt
 from utils.helper import CheckText, CheckVisibility
@@ -22,6 +22,7 @@ class HomePage:
         self.c = CheckText(self.browser)
         self.d = CheckVisibility(self.browser)
         self.cursor = ActionChains(self.browser)
+        self.template = Template(self.browser)
 
     def load(self):
         self.browser.get(BASEURL_site)
@@ -223,7 +224,7 @@ class HomePage:
         fi_item_title = fi_element.text
         fi_element.click()
         time.sleep(1)
-        assert_that(self.browser.find_element(*ploc.title).text).is_equal_to(fi_item_title)
+        assert_that(self.browser.find_element(*tloc.title).text).is_equal_to(fi_item_title)
         self.browser.back()
         self.browser.execute_script("window.scrollTo(0, 2186)")
         time.sleep(1)
@@ -246,7 +247,7 @@ class HomePage:
         tre_item_title = tre_element.text
         tre_element.click()
         time.sleep(1)
-        assert_that(self.browser.find_element(*ploc.title).text).is_equal_to(tre_item_title)
+        assert_that(self.browser.find_element(*tloc.title).text).is_equal_to(tre_item_title)
         self.browser.back()
         self.browser.execute_script("window.scrollTo(0, 3451)")
         time.sleep(1)
@@ -338,6 +339,23 @@ class HomePage:
         self.browser.close()
         self.browser.switch_to.window(windows[0])
 
+    def filter_top(self, *elem):
+        filter_elem = self.browser.find_element(*elem)
+        filter_elem.click()
+        time.sleep(1)
+        if self.browser.find_element(*loc.wp_applied_filter_top_result_1).is_displayed():
+            assert_that(self.browser.find_element(*loc.wp_applied_filter_top_result_1).text).\
+                is_equal_to(filter_elem.text)
+            assert_that(self.browser.find_element(*loc.wp_applied_filter_clear_all_btn).text).\
+                is_equal_to(txt.wp_applied_filter_clear_all_btn_txt)
+            self.browser.find_element(*loc.wp_applied_filter_clear_all_btn).click()
+            filter_elem.click()
+            time.sleep(1)
+            self.browser.find_element(*loc.wp_applied_filter_top_result_1_cancel_btn).click()
+        else:
+            assert_that(display).is_equal_to("All/STARTER/PRO filter not working.")
+        time.sleep(1)
+
     def home_page_browse_wordpress_template(self):
         self.browser.execute_script("window.scrollTo(0, 4604)")
         assert_that(self.browser.find_element(*loc.wp_ready_to_import_label).text). \
@@ -345,7 +363,38 @@ class HomePage:
         assert_that(self.browser.find_element(*loc.wp_wordpress_template_label).text). \
             is_equal_to(txt.wp_wordpress_template_label_txt)
         self.browser.execute_script("window.scrollTo(0, 4857)")
-        assert_that(self.browser.find_element(*loc.).text).is_equal_to(txt.)
+        assert_that(self.browser.find_element(*loc.wp_filter_label).text).is_equal_to(txt.wp_filter_label_txt)
+        self.browser.find_element(*loc.wp_filter_menu_hide).click()
+        time.sleep(1)
+        if self.browser.find_element(*loc.wp_filter_label).is_displayed():
+            assert_that(display).is_equal_to("Filter & Refine not hiding")
+        else:
+            self.browser.find_element(*loc.wp_filter_menu_show).click()
+            time.sleep(1)
+            if self.browser.find_element(*loc.wp_filter_label).is_displayed():
+                assert_that(display).is_equal_to(1)
+            else:
+                assert_that(display).is_equal_to("Filter & Refine not opening")
+
+        # Filter By Starter
+        self.browser.find_element(*loc.wp_filter_starter).click()
+        time.sleep(1)
+        self.filter_top(*loc.wp_filter_starter)
+        # Filter By Pro
+        self.browser.find_element(*loc.wp_filter_pro).click()
+        time.sleep(1)
+        self.filter_top(*loc.wp_filter_pro)
+        self.template.check_template_via_other_page(loc.wp_template_1_title,loc.wp_template_1_ratings,
+                                                    loc.wp_template_1_ratings_icon, loc.wp_template_1_download,
+                                                    loc.wp_template_1_download_icon, loc.wp_template_1_category,
+                                                    loc.wp_template_1_category_on_img)
+        self.browser.execute_script("window.scrollTo(0, 4857)")
+        self.browser.execute_script("window.scrollTo(0, 6424)")
+        self.template.check_template_via_other_page(loc.wp_template_2_title,loc.wp_template_2_ratings,
+                                                    loc.wp_template_2_ratings_icon, loc.wp_template_2_download,
+                                                    loc.wp_template_2_download_icon, loc.wp_template_2_category,
+                                                    loc.wp_template_2_category_on_img)
+        self.browser.execute_script("window.scrollTo(0, 6424)")
 
     def testcase(self):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)

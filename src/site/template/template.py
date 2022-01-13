@@ -1,0 +1,55 @@
+import time
+
+from assertpy import soft_assertions, assert_that
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
+from src.site.template.template_locators import TemplateLocators as loc
+
+from utils.helper import CheckText, CheckVisibility
+
+
+class Template:
+    def __init__(self, browser):
+        self.browser = browser
+        self.c = CheckText(self.browser)
+        self.d = CheckVisibility(self.browser)
+        self.cursor = ActionChains(self.browser)
+
+    def load(self):
+        self.browser.get()
+
+    def check_template_via_other_page(self, title, rate, rate_icon, download, download_icon, category, cat_img):
+        ratings_txt = self.browser.find_element(By.XPATH, rate).text
+        downloads_txt = self.browser.find_element(By.XPATH, download).text
+        ttl_txt = self.browser.find_element(By.XPATH, title).text
+        cat_txt = self.browser.find_element(By.XPATH, category).text
+        cat_frm_img_txt = self.browser.find_element(By.XPATH, cat_img).text
+
+        self.d.check_visibility(rate_icon, "Ratings icon is not visible")
+        self.d.check_visibility(download_icon, "Download icon is not visible")
+
+        self.cursor.move_to_element(self.browser.find_element(By.XPATH, title)).perform()
+        time.sleep(1)
+        self.browser.find_element(By.XPATH, title).click()
+        time.sleep(1)
+        assert_that(self.browser.find_element(*loc.title).text).is_equal_to(ttl_txt)
+        time.sleep(1)
+        assert_that(self.browser.find_element(*loc.download_count).text).is_equal_to(downloads_txt)
+        assert_that(self.browser.find_element(*loc.ratings_count).text).is_equal_to(ratings_txt)
+
+        if cat_txt == cat_frm_img_txt:
+            assert_that(self.browser.find_element(*loc.img_cat).text).is_equal_to(cat_txt)
+        else:
+            assert_that(self.browser.find_element(*loc.img_cat).text).is_equal_to(cat_frm_img_txt)
+
+        self.d.check_visibility(loc.favourite_icon, "Favourite icon is not visible")
+        self.d.check_visibility(loc.download_icon, "Download icon is not visible")
+        self.d.check_visibility(loc.ratings_icon, "Ratings icon is not visible")
+        self.d.check_visibility(loc.submit_ratings_box, "Rating Box is not visible")
+        self.browser.back()
+        time.sleep(1)
+
+    def testcase(self):
+        with soft_assertions():
+            pass
+
