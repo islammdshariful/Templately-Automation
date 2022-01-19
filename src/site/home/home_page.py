@@ -5,8 +5,6 @@ from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-from utils.config import *
 from src.site.template.template import Template
 from src.site.home.home_page_locators import HomePageLocators as loc
 from src.site.home.home_page_locators import HomePageTexts as txt
@@ -14,6 +12,7 @@ from src.site.template.template_locators import TemplateLocators as tloc
 from src.site.browse.browse_locators import BrowseLocators as bloc
 from src.site.browse.browse_locators import BrowseText as btxt
 from utils.helper import CheckText, CheckVisibility
+from utils.configuration import Config
 
 
 class HomePage:
@@ -23,9 +22,10 @@ class HomePage:
         self.d = CheckVisibility(self.browser)
         self.cursor = ActionChains(self.browser)
         self.template = Template(self.browser)
+        self.conf = Config()
 
-    def load(self):
-        self.browser.get(BASEURL_site)
+    def load(self, url):
+        self.browser.get(url)
 
     def check_pricing(self, type):
         self.browser.execute_script("window.scrollTo(0, 8990)")
@@ -64,7 +64,7 @@ class HomePage:
         self.browser.find_element(*loc.mon_sta_temp_items).click()
         time.sleep(1)
         assert_that(self.browser.find_element(*bloc.header).text).is_equal_to(btxt.header_txt)
-        assert_that(self.browser.current_url).is_equal_to(BASEURL_site + "all?package=starter&page=1")
+        # assert_that(self.browser.current_url).is_equal_to(BASEURL_site + "all?package=starter&page=1")
         self.browser.back()
         self.browser.execute_script("window.scrollTo(0, 8990)")
         time.sleep(1)
@@ -101,7 +101,7 @@ class HomePage:
         self.browser.find_element(*loc.mon_prem_temp_items).click()
         time.sleep(1)
         assert_that(self.browser.find_element(*bloc.header).text).is_equal_to(btxt.header_txt)
-        assert_that(self.browser.current_url).is_equal_to(BASEURL_site + "all?package=starter&page=1")
+        # assert_that(self.browser.current_url).is_equal_to(BASEURL_site + "all?package=starter&page=1")
         self.browser.back()
         self.browser.execute_script("window.scrollTo(0, 8990)")
         time.sleep(1)
@@ -111,7 +111,7 @@ class HomePage:
         self.browser.find_element(*loc.mon_prem_pro_temp_items).click()
         time.sleep(1)
         assert_that(self.browser.find_element(*bloc.header).text).is_equal_to(btxt.header_txt)
-        assert_that(self.browser.current_url).is_equal_to(BASEURL_site + "all?package=pro&page=1")
+        # assert_that(self.browser.current_url).is_equal_to(BASEURL_site + "all?package=pro&page=1")
         self.browser.back()
         self.browser.execute_script("window.scrollTo(0, 8990)")
         time.sleep(1)
@@ -135,14 +135,14 @@ class HomePage:
         self.browser.find_element(*loc.lftm_temp_items).click()
         time.sleep(1)
         assert_that(self.browser.find_element(*bloc.header).text).is_equal_to(btxt.header_txt)
-        assert_that(self.browser.current_url).is_equal_to(BASEURL_site + "all?package=starter&page=1")
+        # assert_that(self.browser.current_url).is_equal_to(BASEURL_site + "all?package=starter&page=1")
         self.browser.back()
         self.browser.execute_script("window.scrollTo(0, 9676)")
         time.sleep(1)
         self.browser.find_element(*loc.lftm_pro_temp_items).click()
         time.sleep(1)
         assert_that(self.browser.find_element(*bloc.header).text).is_equal_to(btxt.header_txt)
-        assert_that(self.browser.current_url).is_equal_to(BASEURL_site + "all?package=pro&page=1")
+        # assert_that(self.browser.current_url).is_equal_to(BASEURL_site + "all?package=pro&page=1")
         self.browser.back()
         self.browser.execute_script("window.scrollTo(0, 9676)")
         time.sleep(1)
@@ -151,11 +151,11 @@ class HomePage:
         self.c.check_title(txt.title_txt)
         assert_that(self.browser.find_element(*loc.header).text).is_equal_to(txt.header_txt)
         if self.browser.find_element(*loc.video).is_displayed():
-            assert_that(display).is_equal_to(1)
+            assert_that(self.conf.display).is_equal_to(1)
             assert_that(self.browser.find_element(*loc.video_source).get_attribute('src')). \
                 is_equal_to(txt.video_source_txt)
         else:
-            assert_that(display).is_equal_to(" Header Video is not visible.")
+            assert_that(self.conf.display).is_equal_to(" Header Video is not visible.")
 
         self.browser.find_element(*loc.how_it_works_btn).click()
         time.sleep(1)
@@ -181,11 +181,11 @@ class HomePage:
         self.browser.find_element(*loc.cw_how_it_works_close_btn).click()
 
         if self.browser.find_element(*loc.cw_video).is_displayed():
-            assert_that(display).is_equal_to(1)
+            assert_that(self.conf.display).is_equal_to(1)
             assert_that(self.browser.find_element(*loc.cw_video_source).get_attribute('src')). \
                 is_equal_to(txt.cw_video_source_txt)
         else:
-            assert_that(display).is_equal_to("Cloud Workspace Video is not visible.")
+            assert_that(self.conf.display).is_equal_to("Cloud Workspace Video is not visible.")
 
     def home_page_insight_content(self):
         self.browser.execute_script("window.scrollTo(0, 1182)")
@@ -195,14 +195,14 @@ class HomePage:
 
         tt_count = self.browser.find_element(*loc.total_template).text
         if tt_count == "0":
-            assert_that(display).is_equal_to("Total Template Count is Wrong")
+            assert_that(self.conf.display).is_equal_to("Total Template Count is Wrong")
 
         assert_that(self.browser.find_element(*loc.total_pack_label).text). \
             is_equal_to(txt.total_pack_label_txt)
 
         tp_count = self.browser.find_element(*loc.total_pack).text
         if tp_count == "0":
-            assert_that(display).is_equal_to("Total Pack Count is Wrong")
+            assert_that(self.conf.display).is_equal_to("Total Pack Count is Wrong")
 
         assert_that(self.browser.find_element(*loc.happy_users_label).text). \
             is_equal_to(txt.happy_users_label_txt)
@@ -217,9 +217,9 @@ class HomePage:
         fi_element = WebDriverWait(self.browser, 15).until(
             EC.visibility_of_element_located((By.XPATH, loc.fi_item_title)))
         if self.browser.find_element(*loc.fi_item_img).is_displayed():
-            assert_that(display).is_equal_to(1)
+            assert_that(self.conf.display).is_equal_to(1)
         else:
-            assert_that(display).is_equal_to("Feature Items Image is not visible.")
+            assert_that(self.conf.display).is_equal_to("Feature Items Image is not visible.")
         self.cursor.move_to_element(fi_element).perform()
         fi_item_title = fi_element.text
         fi_element.click()
@@ -240,9 +240,9 @@ class HomePage:
         tre_element = WebDriverWait(self.browser, 15).until(
             EC.visibility_of_element_located((By.XPATH, loc.tre_items_title)))
         if self.browser.find_element(*loc.tre_items_img).is_displayed():
-            assert_that(display).is_equal_to(1)
+            assert_that(self.conf.display).is_equal_to(1)
         else:
-            assert_that(display).is_equal_to("Trending Items Image is not visible.")
+            assert_that(self.conf.display).is_equal_to("Trending Items Image is not visible.")
         self.cursor.move_to_element(tre_element).perform()
         tre_item_title = tre_element.text
         tre_element.click()
@@ -309,13 +309,13 @@ class HomePage:
         self.browser.find_element(*loc.menu_pricing).click()
         time.sleep(1)
         if self.browser.find_element(*loc.license_unl_tem_label).is_displayed():
-            assert_that(display).is_equal_to(1)
+            assert_that(self.conf.display).is_equal_to(1)
             assert_that(self.browser.find_element(*loc.license_unl_tem_label).text). \
                 is_equal_to(txt.license_unl_tem_label_txt)
             assert_that(self.browser.find_element(*loc.license_unl_tem_des).text). \
                 is_equal_to(txt.license_unl_tem_des_txt)
         else:
-            assert_that(display).is_equal_to("Pricing Menu not taking to the Pricing Content.")
+            assert_that(self.conf.display).is_equal_to("Pricing Menu not taking to the Pricing Content.")
 
         # Doc
         self.browser.find_element(*loc.menu_doc).click()
@@ -353,7 +353,7 @@ class HomePage:
             time.sleep(1)
             self.browser.find_element(*loc.wp_applied_filter_top_result_1_cancel_btn).click()
         else:
-            assert_that(display).is_equal_to("All/STARTER/PRO filter not working.")
+            assert_that(self.conf.display).is_equal_to("All/STARTER/PRO filter not working.")
         time.sleep(1)
 
     def home_page_browse_wordpress_template(self):
@@ -367,14 +367,14 @@ class HomePage:
         self.browser.find_element(*loc.wp_filter_menu_hide).click()
         time.sleep(1)
         if self.browser.find_element(*loc.wp_filter_label).is_displayed():
-            assert_that(display).is_equal_to("Filter & Refine not hiding")
+            assert_that(self.conf.display).is_equal_to("Filter & Refine not hiding")
         else:
             self.browser.find_element(*loc.wp_filter_menu_show).click()
             time.sleep(1)
             if self.browser.find_element(*loc.wp_filter_label).is_displayed():
-                assert_that(display).is_equal_to(1)
+                assert_that(self.conf.display).is_equal_to(1)
             else:
-                assert_that(display).is_equal_to("Filter & Refine not opening")
+                assert_that(self.conf.display).is_equal_to("Filter & Refine not opening")
 
         # Filter By Starter
         self.browser.find_element(*loc.wp_filter_starter).click()

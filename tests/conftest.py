@@ -1,8 +1,19 @@
+import json
 import os
+import sys
+
 import pytest
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+
+
+@pytest.fixture()
+def config(scope='session'):
+    with open(str(sys.path[1]) + '/utils/credentials.json') as cred:
+        config = json.load(cred)
+
+    return config
 
 
 # This will run before all test case
