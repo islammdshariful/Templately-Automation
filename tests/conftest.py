@@ -9,11 +9,11 @@ from selenium.webdriver.chrome.options import Options
 
 
 @pytest.fixture()
-def config(scope='session'):
-    with open(str(sys.path[1]) + '/utils/credentials.json') as cred:
-        config = json.load(cred)
+def cred(scope='session'):
+    with open(str(sys.path[1]) + '/utils/credentials.json') as credentials:
+        credential = json.load(credentials)
 
-    return config
+    return credential
 
 
 # This will run before all test case

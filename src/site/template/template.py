@@ -5,14 +5,13 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from src.site.template.template_locators import TemplateLocators as loc
 
-from utils.helper import CheckText, CheckVisibility
+from utils.helper import Helper
 
 
-class Template:
+class Template(Helper):
     def __init__(self, browser):
+        super().__init__(browser)
         self.browser = browser
-        self.c = CheckText(self.browser)
-        self.d = CheckVisibility(self.browser)
         self.cursor = ActionChains(self.browser)
 
     def load(self):
@@ -25,8 +24,8 @@ class Template:
         cat_txt = self.browser.find_element(By.XPATH, category).text
         cat_frm_img_txt = self.browser.find_element(By.XPATH, cat_img).text
 
-        self.d.check_visibility(rate_icon, "Ratings icon is not visible")
-        self.d.check_visibility(download_icon, "Download icon is not visible")
+        self.check_visibility(rate_icon, "Ratings icon is not visible")
+        self.check_visibility(download_icon, "Download icon is not visible")
 
         self.cursor.move_to_element(self.browser.find_element(By.XPATH, title)).perform()
         time.sleep(1)
@@ -42,14 +41,10 @@ class Template:
         else:
             assert_that(self.browser.find_element(*loc.img_cat).text).is_equal_to(cat_frm_img_txt)
 
-        self.d.check_visibility(loc.favourite_icon, "Favourite icon is not visible")
-        self.d.check_visibility(loc.download_icon, "Download icon is not visible")
-        self.d.check_visibility(loc.ratings_icon, "Ratings icon is not visible")
-        self.d.check_visibility(loc.submit_ratings_box, "Rating Box is not visible")
+        self.check_visibility(loc.favourite_icon, "Favourite icon is not visible")
+        self.check_visibility(loc.download_icon, "Download icon is not visible")
+        self.check_visibility(loc.ratings_icon, "Ratings icon is not visible")
+        self.check_visibility(loc.submit_ratings_box, "Rating Box is not visible")
         self.browser.back()
         time.sleep(1)
-
-    def testcase(self):
-        with soft_assertions():
-            pass
 

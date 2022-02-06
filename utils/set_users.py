@@ -1,7 +1,7 @@
 
 class User:
-    def __init__(self, config, email="", password=""):
-        self.config = config
+    def __init__(self, cred, email="", password=""):
+        self.cred = cred
         self.email = email
         self.password = password
 
@@ -13,17 +13,17 @@ class User:
 
     def set_email(self, usr):
         if usr.__eq__("user_1"):
-            self.email = self.config["user_1"]["email"]
+            self.email = self.cred["user_1"]["email"]
         elif usr.__eq__("user_2"):
-            self.email = self.config["user_2"]["email"]
+            self.email = self.cred["user_2"]["email"]
         else:
             pass
 
     def set_password(self, usr):
         if str(usr).__eq__("user_1"):
-            self.password = self.config["user_1"]["password"]
+            self.password = self.cred["user_1"]["password"]
         elif str(usr).__eq__("user_2"):
-            self.password = self.config["user_2"]["password"]
+            self.password = self.cred["user_2"]["password"]
         else:
             pass
 

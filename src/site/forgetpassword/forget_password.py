@@ -3,18 +3,17 @@ import time
 from assertpy import soft_assertions, assert_that
 from selenium.webdriver import ActionChains
 
-from utils.helper import CheckText, CheckVisibility
+from utils.helper import Helper
 from src.site.forgetpassword.forget_password_locators import ForgetPassLocators as loc
 from src.site.forgetpassword.forget_password_locators import ForgetPassText as txt
 from src.site.signin.signin_locators import SignInLocators as sloc
 from src.site.signin.signin_locators import SignInText as stxt
 
 
-class ForgetPassword:
+class ForgetPassword(Helper):
     def __init__(self, browser):
+        super().__init__(browser)
         self.browser = browser
-        self.c = CheckText(self.browser)
-        self.d = CheckVisibility(self.browser)
         self.cursor = ActionChains(self.browser)
 
     def load(self):
@@ -23,7 +22,7 @@ class ForgetPassword:
     def check_forget_password_on_page(self):
         self.browser.find_element(*sloc.forget_pass).click()
         time.sleep(1)
-        self.d.check_visibility(loc.icon, "Icon is not visible")
+        self.check_visibility(loc.icon, "Icon is not visible")
         assert_that(self.browser.find_element(*loc.title).text).is_equal_to(txt.title_text)
         assert_that(self.browser.find_element(*loc.des).text).is_equal_to(txt.des)
         self.browser.find_element(*loc.sign_in_page).click()
@@ -33,9 +32,9 @@ class ForgetPassword:
     def check_forget_password_on_modal(self):
         self.browser.find_element(*sloc.forget_pass).click()
         time.sleep(1)
-        self.d.check_visibility(loc.modal_icon, "Icon is not visible")
+        self.check_visibility(loc.modal_icon, "Icon is not visible")
         assert_that(self.browser.find_element(*loc.modal_title).text).is_equal_to(txt.modal_title_text)
-        self.browser.find_element(*loc.sign_in_page).click()
+        self.browser.find_element(*loc.sign_in_page_modal).click()
         time.sleep(1)
         assert_that(self.browser.find_element(*sloc.modal_title).text).is_equal_to(stxt.sign_in_title_txt)
 

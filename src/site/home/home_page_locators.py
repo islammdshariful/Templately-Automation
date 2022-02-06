@@ -10,11 +10,11 @@ class HomePageLocators:
     menu_blog = (By.XPATH, f'//*[@id="__next"]/div[3]/header/div[3]/div/nav/div[2]/ul/li[5]')
 
     my_cloud_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/header/div[3]/div/nav/div[2]/a')
-    singin_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/header/div[3]/div/nav/div[2]/div/button')
+    signin_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/header/div[3]/div/nav/div[2]/div/button')
 
     # Header
     header = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/div/section/div[3]/div/div/div[1]/h1')
-    video = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/div/section/div[3]/div/div/div[2]/div/div/video')
+    video = f'//*[@id="__next"]/div[3]/div/div/main/div/section/div[3]/div/div/div[2]/div/div/video'
     video_source = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/div/section/div[3]/div/div/div[2]/div/div'
                               f'/video/source')
     get_started_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/div/section/div[3]/div/div/div[1]/div/a/span')
@@ -51,23 +51,23 @@ class HomePageLocators:
     cw_how_it_works_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[2]/div[2]/button'
                                      f'/span[2]')
     cw_how_it_works_close_btn = (By.XPATH, f'/html/body/div[6]/div/div/div[1]/span')
-    cw_video = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[1]/div/div/video')
+    cw_video = f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[1]/div/div/video'
     cw_video_source = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[1]/div/div/video'
                                  f'/source')
 
     # Feature Items
     fi_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[3]/div[3]/div[1]/h3')
-    fi_item_title = f'//*[@id="__next"]/div[3]/div/div/main/section[3]/div[3]/div[2]/div/div/ul/li[11]/div/a/div/h4'
-    fi_item_img = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[3]/div[3]/div[2]/div/div/ul/li[11]'
-                             f'/div/a/div/div[1]/img')
+    fi_item_title = f'//*[@id="__next"]/div[3]/div/div/main/section[3]/div[3]/div[2]/div/div/ul/li[7]/div/a/div/h4'
+    fi_item_img = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[3]/div[3]/div[2]/div/div/ul/li[7]'
+                             f'/div/a/div/span/img')
     fi_prev_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[3]/div[3]/div[2]/div/div/button[1]')
     fi_nxt_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[3]/div[3]/div[2]/div/div/button[2]')
 
     # Trending Items
     tre_items_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[4]/div[2]/div[1]/h3')
-    tre_items_img = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[4]/div[2]/div[2]/div/div/ul/li[9]'
-                               f'/div/a/div[2]/div[1]/img')
-    tre_items_title = f'//*[@id="__next"]/div[3]/div/div/main/section[4]/div[2]/div[2]/div/div/ul/li[9]/div/a/div[2]/h4'
+    tre_items_img = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[4]/div[2]/div[2]/div/div/ul/li[5]/'
+                               f'div/a/div[2]/span/img')
+    tre_items_title = f'//*[@id="__next"]/div[3]/div/div/main/section[4]/div[2]/div[2]/div/div/ul/li[5]/div/a/div[2]/h4'
     tre_prev_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[4]/div[2]/div[2]/div/div/button[1]')
     tre_nxt_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[4]/div[2]/div[2]/div/div/button[2]')
 
@@ -88,9 +88,9 @@ class HomePageLocators:
                                f'/button[3]')
     # Top filter
     wp_applied_filter_top_result_1 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
-                                                f'/div[2]/div[2]/div/span/span')
+                                                f'/div[2]/div[2]/div/div/span[2]/span')
     wp_applied_filter_top_result_1_cancel_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]'
-                                                           f'/div/div/div[2]/div[2]/div/span/button/i')
+                                                           f'/div/div/div[2]/div[2]/div/div/span[2]/button')
 
     # Filter By Blocks
     wp_filter_blocks_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
@@ -200,8 +200,7 @@ class HomePageLocators:
                                                     f'/div[2]/div[2]/div/span[2]')
     wp_applied_filter_popular_result_2_cancel_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]'
                                                                f'/div[3]/div/div/div[2]/div[2]/div/span[2]/button/i')
-    wp_applied_filter_clear_all_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
-                                                 f'/div[2]/div[2]/div/button')
+    wp_applied_filter_clear_all_btn = (By.XPATH, f"//button[normalize-space()='Clear All']")
 
     # Search Filter Result Sort
     wp_applied_filter_sort_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
@@ -231,7 +230,7 @@ class HomePageLocators:
     wp_template_1_category = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]' \
                              f'/div/div/div/div[3]/span'
     wp_template_1_category_on_img = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
-                                    f'/div[1]/div/div/a[1]/div[3]/div[2]'
+                                    f'/div[1]/div/div/a[1]/div[3]/div'
 
     # Template information - 2
     wp_template_2_title = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
@@ -247,7 +246,7 @@ class HomePageLocators:
     wp_template_2_category = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
                              f'/div/div/div/div[3]/span'
     wp_template_2_category_on_img = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
-                                    f'/div[9]/div/div/a[1]/div[3]/div[2]'
+                                    f'/div[9]/div/div/a[1]/div[3]/div'
 
     # Building With Cloud
     bwc_the_feature_of_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[1]/h4')
@@ -328,7 +327,7 @@ class HomePageLocators:
 
 class HomePageTexts:
     # Header
-    title_txt = 'Templately - The Best Elementor Templates for WordPress & Cloud WorkSpace for 2021'
+    title_txt = 'Templately - The Best Elementor Templates for WordPress & Cloud WorkSpace for 2022'
     video_source_txt = "https://assets.templately.com/frontend/Landing%20Page%20Intro%20V2.0.mp4"
     header_txt = "Ultimate\nTEMPLATES\nCloud for WordPress"
 
@@ -336,7 +335,7 @@ class HomePageTexts:
     total_template_label_txt = "TOTAL TEMPLATES"
     total_pack_label_txt = "TOTAL PACKS"
     happy_users_label_txt = "HAPPY USERS"
-    happy_users_txt = "100,000+"
+    happy_users_txt = "200,000+"
 
     # Could Wordspace
     cw_label_txt = "Cloud Workspace"

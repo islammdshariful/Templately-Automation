@@ -5,6 +5,9 @@ class Config:
     DEV = False
     user = ""
 
+    def __init__(self, cred):
+        self.cred = cred
+
     def set_env(self, env):
         if env.__eq__('live'):
             self.LIVE = True
@@ -37,11 +40,12 @@ class Config:
                 return 0
 
         if self.DEV:
+            cred_root = self.cred["dev"]["root"]
             root = "https://templately.dev/"
             signup = root + "signup"
 
             if url.__eq__('root'):
-                return root
+                return cred_root
             elif url.__eq__('signup'):
                 return signup
             else:
