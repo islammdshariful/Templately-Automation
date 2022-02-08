@@ -3,273 +3,273 @@ from selenium.webdriver.common.by import By
 
 class HomePageLocators:
     # Menu
-    menu_home = (By.XPATH, f'//*[@id="__next"]/div[3]/header/div[3]/div/nav/div[2]/ul/li[1]')
-    menu_browse = (By.XPATH, f'//*[@id="__next"]/div[3]/header/div[3]/div/nav/div[2]/ul/li[2]')
-    menu_pricing = (By.XPATH, f'//*[@id="__next"]/div[3]/header/div[3]/div/nav/div[2]/ul/li[3]')
-    menu_doc = (By.XPATH, f'//*[@id="__next"]/div[3]/header/div[3]/div/nav/div[2]/ul/li[4]')
-    menu_blog = (By.XPATH, f'//*[@id="__next"]/div[3]/header/div[3]/div/nav/div[2]/ul/li[5]')
+    menu_home = (By.XPATH, f"//a[normalize-space()='Home']")
+    menu_browse = (By.XPATH, f"//a[normalize-space()='Browse']")
+    menu_pricing = (By.XPATH, f"//a[normalize-space()='Pricing']")
+    menu_doc = (By.XPATH, f"//a[normalize-space()='Doc']")
+    menu_blog = (By.XPATH, f"//a[normalize-space()='Blog']")
 
-    my_cloud_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/header/div[3]/div/nav/div[2]/a')
-    signin_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/header/div[3]/div/nav/div[2]/div/button')
+    my_cloud_btn = (By.XPATH, f"//a[starts-with(@class, 'Style_tly__button')]")
+    signin_btn = (By.XPATH, "//button[normalize-space()='Sign In']")
 
     # Header
-    header = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/div/section/div[3]/div/div/div[1]/h1')
-    video = f'//*[@id="__next"]/div[3]/div/div/main/div/section/div[3]/div/div/div[2]/div/div/video'
-    video_source = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/div/section/div[3]/div/div/div[2]/div/div'
+    header = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/div/section/div[3]/div/div/div[1]/h1')
+    video = f'//*[@id="__next"]/div[2]/div/div/main/div/section/div[3]/div/div/div[2]/div/div/video'
+    video_source = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/div/section/div[3]/div/div/div[2]/div/div'
                               f'/video/source')
-    get_started_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/div/section/div[3]/div/div/div[1]/div/a/span')
+    get_started_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/div/section/div[3]/div/div/div[1]/div/a/span')
 
-    how_it_works_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/div/section/div[3]/div/div/div[1]/div'
+    how_it_works_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/div/section/div[3]/div/div/div[1]/div'
                                   f'/button/span[2]')
 
     how_it_works_close_btn = (By.XPATH, f'/html/body/div[5]/div/div/div[1]/span')
 
     # Insight
-    total_template = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[1]/div[2]/div/div/div/div[1]/div'
+    total_template = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[1]/div[2]/div/div/div/div[1]/div'
                                 f'/div[2]/h4/div')
-    total_template_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[1]/div[2]/div/div/div/div[1]'
+    total_template_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[1]/div[2]/div/div/div/div[1]'
                                       f'/div/div[2]/p')
 
-    total_pack = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[1]/div[2]/div/div/div/div[2]/div/div[2]'
+    total_pack = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[1]/div[2]/div/div/div/div[2]/div/div[2]'
                             f'/h4/div')
-    total_pack_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[1]/div[2]/div/div/div/div[2]/div'
+    total_pack_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[1]/div[2]/div/div/div/div[2]/div'
                                   f'/div[2]/p')
 
-    happy_users = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[1]/div[2]/div/div/div/div[3]/div/div[2]'
+    happy_users = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[1]/div[2]/div/div/div/div[3]/div/div[2]'
                              f'/h4/div')
-    happy_users_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[1]/div[2]/div/div/div/div[3]/div'
+    happy_users_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[1]/div[2]/div/div/div/div[3]/div'
                                    f'/div[2]/p')
 
     # Could Wordspace
-    cw_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[2]/div[1]/h3')
-    cw_my_cloud_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[2]/h4[1]')
-    cw_my_cloud_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[2]/p[1]')
+    cw_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[2]/div/div/div[2]/div[1]/h3')
+    cw_my_cloud_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[2]/div/div/div[2]/h4[1]')
+    cw_my_cloud_des = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[2]/div/div/div[2]/p[1]')
 
-    cw_workspace_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[2]/h4[2]')
-    cw_workspace_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[2]/p[2]')
-    get_free_plugin_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[2]/div[2]/a/span')
-    cw_how_it_works_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[2]/div[2]/button'
+    cw_workspace_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[2]/div/div/div[2]/h4[2]')
+    cw_workspace_des = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[2]/div/div/div[2]/p[2]')
+    get_free_plugin_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[2]/div/div/div[2]/div[2]/a/span')
+    cw_how_it_works_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[2]/div/div/div[2]/div[2]/button'
                                      f'/span[2]')
     cw_how_it_works_close_btn = (By.XPATH, f'/html/body/div[6]/div/div/div[1]/span')
-    cw_video = f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[1]/div/div/video'
-    cw_video_source = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[2]/div/div/div[1]/div/div/video'
+    cw_video = f'//*[@id="__next"]/div[2]/div/div/main/section[2]/div/div/div[1]/div/div/video'
+    cw_video_source = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[2]/div/div/div[1]/div/div/video'
                                  f'/source')
 
     # Feature Items
-    fi_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[3]/div[3]/div[1]/h3')
-    fi_item_title = f'//*[@id="__next"]/div[3]/div/div/main/section[3]/div[3]/div[2]/div/div/ul/li[7]/div/a/div/h4'
-    fi_item_img = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[3]/div[3]/div[2]/div/div/ul/li[7]'
+    fi_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[3]/div[3]/div[1]/h3')
+    fi_item_title = f'//*[@id="__next"]/div[2]/div/div/main/section[3]/div[3]/div[2]/div/div/ul/li[7]/div/a/div/h4'
+    fi_item_img = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[3]/div[3]/div[2]/div/div/ul/li[7]'
                              f'/div/a/div/span/img')
-    fi_prev_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[3]/div[3]/div[2]/div/div/button[1]')
-    fi_nxt_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[3]/div[3]/div[2]/div/div/button[2]')
+    fi_prev_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[3]/div[3]/div[2]/div/div/button[1]')
+    fi_nxt_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[3]/div[3]/div[2]/div/div/button[2]')
 
     # Trending Items
-    tre_items_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[4]/div[2]/div[1]/h3')
-    tre_items_img = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[4]/div[2]/div[2]/div/div/ul/li[5]/'
+    tre_items_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[4]/div[2]/div[1]/h3')
+    tre_items_img = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[4]/div[2]/div[2]/div/div/ul/li[5]/'
                                f'div/a/div[2]/span/img')
-    tre_items_title = f'//*[@id="__next"]/div[3]/div/div/main/section[4]/div[2]/div[2]/div/div/ul/li[5]/div/a/div[2]/h4'
-    tre_prev_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[4]/div[2]/div[2]/div/div/button[1]')
-    tre_nxt_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[4]/div[2]/div[2]/div/div/button[2]')
+    tre_items_title = f'//*[@id="__next"]/div[2]/div/div/main/section[4]/div[2]/div[2]/div/div/ul/li[5]/div/a/div[2]/h4'
+    tre_prev_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[4]/div[2]/div[2]/div/div/button[1]')
+    tre_nxt_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[4]/div[2]/div[2]/div/div/button[2]')
 
     # WordPress Templates
-    wp_ready_to_import_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[2]/div/h4')
-    wp_wordpress_template_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[2]/div/h3')
+    wp_ready_to_import_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[2]/div/h4')
+    wp_wordpress_template_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[2]/div/h3')
 
-    wp_filter_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[1]/h6')
-    wp_filter_menu_hide = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[1]'
+    wp_filter_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]/div[1]/h6')
+    wp_filter_menu_hide = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]/div[1]'
                                      f'/button/i')
-    wp_filter_menu_show = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/button')
+    wp_filter_menu_show = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/button')
     # Filter
-    wp_filter_all = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]/div[1]'
+    wp_filter_all = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]/div[1]'
                                f'/button[1]')
-    wp_filter_starter = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
+    wp_filter_starter = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
                                    f'/div[1]/button[2]')
-    wp_filter_pro = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]/div[1]'
+    wp_filter_pro = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]/div[1]'
                                f'/button[3]')
     # Top filter
-    wp_applied_filter_top_result_1 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+    wp_applied_filter_top_result_1 = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div'
                                                 f'/div[2]/div[2]/div/div/span[2]/span')
-    wp_applied_filter_top_result_1_cancel_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]'
+    wp_applied_filter_top_result_1_cancel_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]'
                                                            f'/div/div/div[2]/div[2]/div/div/span[2]/button')
 
     # Filter By Blocks
-    wp_filter_blocks_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
+    wp_filter_blocks_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
                                         f'/div[2]/div[1]/div[1]/h5')
-    wp_filter_blocks_all_blocks = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_blocks_all_blocks = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                              f'/div[2]/div[2]/div[1]/div[2]/ul/li[1]/button')
-    wp_filter_blocks_blocks = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_blocks_blocks = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                          f'/div[2]/div[2]/div[1]/div[2]/ul/li[2]/button')
-    wp_filter_blocks_faq = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_blocks_faq = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                       f'/div[2]/div[2]/div[1]/div[2]/ul/li[3]/button')
-    wp_filter_blocks_footer = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_blocks_footer = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                          f'/div[2]/div[2]/div[1]/div[2]/ul/li[4]/button')
-    wp_filter_blocks_gutenberg = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_blocks_gutenberg = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                             f'/div[2]/div[2]/div[1]/div[2]/ul/li[5]/button')
-    wp_filter_blocks_hero = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_blocks_hero = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                        f'/div[2]/div[2]/div[1]/div[2]/ul/li[6]/button')
     # Filter By Pages
-    wp_filter_pages_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
+    wp_filter_pages_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
                                        f'/div[2]/div[2]/div[1]/h5')
-    wp_filter_pages_all_pages = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_pages_all_pages = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                            f'/div[2]/div[2]/div[2]/div[2]/ul/li[1]/button')
-    wp_filter_pages_archive = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_pages_archive = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                          f'/div[2]/div[2]/div[2]/div[2]/ul/li[2]/button')
-    wp_filter_pages_footer = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_pages_footer = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                         f'/div[2]/div[2]/div[2]/div[2]/ul/li[3]/button')
-    wp_filter_pages_landing_page = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_pages_landing_page = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                               f'/div[2]/div[2]/div[2]/div[2]/ul/li[4]/button')
-    wp_filter_pages_product_archive = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+    wp_filter_pages_product_archive = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div'
                                                  f'/div[1]/div[2]/div[2]/div[2]/div[2]/ul/li[5]/button')
-    wp_filter_pages_single_page = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_pages_single_page = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                              f'/div[2]/div[2]/div[2]/div[2]/ul/li[6]/button')
-    wp_filter_pages_single_post = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_pages_single_post = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                              f'/div[2]/div[2]/div[2]/div[2]/ul/li[7]/button')
-    wp_filter_pages_single_product = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/'
+    wp_filter_pages_single_product = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/'
                                                 f'div[1]/div[2]/div[2]/div[2]/div[2]/ul/li[8]/button')
     # Filter By Packs
-    wp_filter_packs_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
+    wp_filter_packs_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
                                        f'/div[2]/div[3]/div[1]/h5')
-    wp_filter_packs_all_packs = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_packs_all_packs = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                            f'/div[2]/div[2]/div[3]/div[2]/ul/li[1]/button')
-    wp_filter_packs_landing_page = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_packs_landing_page = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                               f'/div[2]/div[2]/div[3]/div[2]/ul/li[2]/button')
-    wp_filter_packs_single_page = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_packs_single_page = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                              f'/div[2]/div[2]/div[3]/div[2]/ul/li[3]/button')
-    wp_filter_packs_site_template = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_packs_site_template = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                                f'/div[2]/div[2]/div[3]/div[2]/ul/li[4]/button')
     # Filter By Tags
-    wp_filter_tags_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
+    wp_filter_tags_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
                                       f'/div[3]/div[1]/h5')
-    wp_filter_tags_search_feild = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_tags_search_feild = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                              f'/div[2]/div[3]/div[1]/div[1]/input')
-    wp_filter_tags_visibility_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+    wp_filter_tags_visibility_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div'
                                                f'/div[1]/div[2]/div[3]/div[1]/div[2]/i')
-    wp_filter_tags_see_more_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_tags_see_more_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                              f'/div[2]/div[3]/div[2]/div[2]/button[1]')
-    wp_filter_tags_apply_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_tags_apply_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                           f'/div[2]/div[3]/div[2]/div[2]/button[2]')
-    wp_filter_tags_list_1 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
+    wp_filter_tags_list_1 = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
                                        f'/div[3]/div[2]/div[1]/label[1]')
-    wp_filter_tags_list_2 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
+    wp_filter_tags_list_2 = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]/div[2]'
                                        f'/div[3]/div[2]/div[1]/label[2]')
     # Filter By Dependency
-    wp_filter_dependency_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[1]'
+    wp_filter_dependency_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[1]'
                                             f'/div[2]/div[4]/div[1]/h5')
-    wp_filter_dependency_visibility_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+    wp_filter_dependency_visibility_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div'
                                                      f'/div[1]/div[2]/div[4]/div[1]/div/i')
-    wp_filter_dependency_see_more_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+    wp_filter_dependency_see_more_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div'
                                                    f'/div[1]/div[2]/div[4]/div[2]/div[2]/button[1]')
-    wp_filter_dependency_apply_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+    wp_filter_dependency_apply_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div'
                                                 f'/div[1]/div[2]/div[4]/div[2]/div[2]/button[2]')
-    wp_filter_dependency_list_1_icon = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+    wp_filter_dependency_list_1_icon = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div'
                                                   f'/div[1]/div[2]/div[4]/div[2]/div[1]/button[1]/span[1]/div/img')
-    wp_filter_dependency_list_1_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+    wp_filter_dependency_list_1_title = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div'
                                                    f'/div[1]/div[2]/div[4]/div[2]/div[1]/button[1]/span[2]')
-    wp_filter_dependency_list_2_icon = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+    wp_filter_dependency_list_2_icon = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div'
                                                   f'/div[1]/div[2]/div[4]/div[2]/div[1]/button[2]/span[1]/div/img')
-    wp_filter_dependency_list_2_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+    wp_filter_dependency_list_2_title = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div'
                                                    f'/div[1]/div[2]/div[4]/div[2]/div[1]/button[2]/span[2]')
     # Search Top Bar
-    wp_search_field = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[1]'
+    wp_search_field = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[1]'
                                  f'/div[2]/div[1]/div/div/input')
-    wp_search_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[1]'
+    wp_search_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[1]'
                                f'/div[2]/div[1]/div/button')
-    wp_search_popular_keys_1 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
+    wp_search_popular_keys_1 = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]'
                                           f'/div[1]/div[2]/div[2]/button[1]')
-    wp_search_popular_keys_2 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
+    wp_search_popular_keys_2 = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]'
                                           f'/div[1]/div[2]/div[2]/button[2]')
-    wp_search_popular_keys_3 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
+    wp_search_popular_keys_3 = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]'
                                           f'/div[1]/div[2]/div[2]/button[3]')
-    wp_search_popular_keys_4 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
+    wp_search_popular_keys_4 = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]'
                                           f'/div[1]/div[2]/div[2]/button[4]')
-    wp_search_popular_keys_5 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
+    wp_search_popular_keys_5 = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]'
                                           f'/div[1]/div[2]/div[2]/button[5]')
-    wp_search_popular_keys_6 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
+    wp_search_popular_keys_6 = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]'
                                           f'/div[1]/div[2]/div[2]/button[6]')
-    wp_search_popular_keys_7 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
+    wp_search_popular_keys_7 = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]'
                                           f'/div[1]/div[2]/div[2]/button[7]')
     # Search Filtered Result
-    wp_applied_filter_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
+    wp_applied_filter_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]'
                                          f'/div[2]/span[1]')
     # Popular
-    wp_applied_filter_popular_result_1 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div'
+    wp_applied_filter_popular_result_1 = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div'
                                                     f'/div/div[2]/div[2]/div/span[1]')
-    wp_applied_filter_popular_result_1_cancel_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]'
+    wp_applied_filter_popular_result_1_cancel_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]'
                                                                f'/div[3]/div/div/div[2]/div[2]/div/span[1]/button/i')
-    wp_applied_filter_popular_result_2 = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+    wp_applied_filter_popular_result_2 = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div'
                                                     f'/div[2]/div[2]/div/span[2]')
-    wp_applied_filter_popular_result_2_cancel_btn = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]'
+    wp_applied_filter_popular_result_2_cancel_btn = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]'
                                                                f'/div[3]/div/div/div[2]/div[2]/div/span[2]/button/i')
     wp_applied_filter_clear_all_btn = (By.XPATH, f"//button[normalize-space()='Clear All']")
 
     # Search Filter Result Sort
-    wp_applied_filter_sort_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]'
+    wp_applied_filter_sort_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]'
                                               f'/div[2]/span[2]/span[1]')
-    wp_applied_filter_sort_select = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div'
+    wp_applied_filter_sort_select = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div'
                                                f'/div[2]/div[2]/span[2]/span[2]/button')
-    wp_applied_filter_sort_select_select = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]'
+    wp_applied_filter_sort_select_select = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]'
                                                       f'/div/div/div[2]/div[2]/span[2]/span[2]/ul/li[1]')
-    wp_applied_filter_sort_select_most_popular = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]'
+    wp_applied_filter_sort_select_most_popular = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]'
                                                             f'/div/div/div[2]/div[2]/span[2]/span[2]/ul/li[2]')
-    wp_applied_filter_sort_select_top_ratings = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]'
+    wp_applied_filter_sort_select_top_ratings = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]'
                                                            f'/div/div/div[2]/div[2]/span[2]/span[2]/ul/li[3]')
-    wp_applied_filter_sort_select_latest = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]'
+    wp_applied_filter_sort_select_latest = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]'
                                                       f'/div/div/div[2]/div[2]/span[2]/span[2]/ul/li[4]')
 
     # Template information - 1
-    wp_template_1_title = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]/div' \
+    wp_template_1_title = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]/div' \
                           f'/div/a[2]/h4'
-    wp_template_1_ratings_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
+    wp_template_1_ratings_icon = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
                                  f'/div[1]/div/div/div/div[1]/button/span[1]/i'
-    wp_template_1_ratings = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]' \
+    wp_template_1_ratings = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]' \
                             f'/div/div/div/div[1]/button/span[2]'
-    wp_template_1_download_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
+    wp_template_1_download_icon = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
                                   f'/div[1]/div/div/div/div[2]/span[1]/i'
-    wp_template_1_download = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]' \
+    wp_template_1_download = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]' \
                              f'/div/div/div/div[2]/span[2]'
-    wp_template_1_category = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]' \
+    wp_template_1_category = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[1]' \
                              f'/div/div/div/div[3]/span'
-    wp_template_1_category_on_img = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
+    wp_template_1_category_on_img = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
                                     f'/div[1]/div/div/a[1]/div[3]/div'
 
     # Template information - 2
-    wp_template_2_title = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
+    wp_template_2_title = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
                           f'/div/div/a[2]/h4'
-    wp_template_2_ratings_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
+    wp_template_2_ratings_icon = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
                                  f'/div[9]/div/div/div/div[1]/button/span[1]/i'
-    wp_template_2_ratings = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
+    wp_template_2_ratings = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
                             f'/div/div/div/div[1]/button/span[2]'
-    wp_template_2_download_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
+    wp_template_2_download_icon = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
                                   f'/div[9]/div/div/div/div[2]/span[1]/i'
-    wp_template_2_download = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
+    wp_template_2_download = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
                              f'/div/div/div/div[2]/span[2]'
-    wp_template_2_category = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
+    wp_template_2_category = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]/div[9]' \
                              f'/div/div/div/div[3]/span'
-    wp_template_2_category_on_img = f'//*[@id="__next"]/div[3]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
+    wp_template_2_category_on_img = f'//*[@id="__next"]/div[2]/div/div/main/section[5]/div[3]/div/div/div[2]/div[3]' \
                                     f'/div[9]/div/div/a[1]/div[3]/div'
 
     # Building With Cloud
-    bwc_the_feature_of_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[1]/h4')
-    bwc_building_with_cloud_label = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[1]/h3')
+    bwc_the_feature_of_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[1]/h4')
+    bwc_building_with_cloud_label = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[1]/h3')
 
-    bwc_item_1_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[1]/div/div/object'
-    bwc_item_1_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[1]/div/h4')
-    bwc_item_1_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[1]/div/p')
-    bwc_item_2_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[2]/div/div/object'
-    bwc_item_2_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[2]/div/h4')
-    bwc_item_2_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[2]/div/p')
-    bwc_item_3_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[3]/div/div/object'
-    bwc_item_3_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[3]/div/h4')
-    bwc_item_3_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[3]/div/p')
-    bwc_item_4_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[4]/div/div/object'
-    bwc_item_4_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[4]/div/h4')
-    bwc_item_4_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[4]/div/p')
-    bwc_item_5_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[5]/div/div/object'
-    bwc_item_5_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[5]/div/h4')
-    bwc_item_5_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[5]/div/p')
-    bwc_item_6_icon = f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[6]/div/div/object'
-    bwc_item_6_title = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[6]/div/h4')
-    bwc_item_6_des = (By.XPATH, f'//*[@id="__next"]/div[3]/div/div/main/section[6]/div[3]/div[2]/div[6]/div/p')
+    bwc_item_1_icon = f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[1]/div/div/object'
+    bwc_item_1_title = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[1]/div/h4')
+    bwc_item_1_des = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[1]/div/p')
+    bwc_item_2_icon = f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[2]/div/div/object'
+    bwc_item_2_title = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[2]/div/h4')
+    bwc_item_2_des = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[2]/div/p')
+    bwc_item_3_icon = f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[3]/div/div/object'
+    bwc_item_3_title = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[3]/div/h4')
+    bwc_item_3_des = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[3]/div/p')
+    bwc_item_4_icon = f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[4]/div/div/object'
+    bwc_item_4_title = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[4]/div/h4')
+    bwc_item_4_des = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[4]/div/p')
+    bwc_item_5_icon = f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[5]/div/div/object'
+    bwc_item_5_title = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[5]/div/h4')
+    bwc_item_5_des = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[5]/div/p')
+    bwc_item_6_icon = f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[6]/div/div/object'
+    bwc_item_6_title = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[6]/div/h4')
+    bwc_item_6_des = (By.XPATH, f'//*[@id="__next"]/div[2]/div/div/main/section[6]/div[3]/div[2]/div[6]/div/p')
 
     # License
     license_unl_tem_label = (By.XPATH, f'//*[@id="pricing"]/div/div[1]/h2[1]')

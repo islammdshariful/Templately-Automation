@@ -3,20 +3,20 @@ from selenium.webdriver.common.by import By
 
 class SignInLocators:
     # Modal
-    modal_icon = f'/html/body/div[3]/div/div/div[1]'
+    modal_icon = f"//div[starts-with(@class, 'Modal_tly__modal__head')]//*[name()='svg']"
     modal_title = (By.XPATH, f"//h4[normalize-space()='Sign In']")
     modal_welcome_msg = (By.XPATH, f"//h4[normalize-space()='Great to have you back!']")
     # Page
-    icon = f'//*[@id="__next"]/div[3]/div/div/main/section/div/div/div[1]/div/div'
+    icon = f"//div[starts-with(@class, 'Auth_tly__auth__head')]//*[name()='svg']"
     title = (By.XPATH, f"//h4[normalize-space()='Sign In']")
-    welcome_msg = (By.XPATH, f"//h4[@class='Auth_tly__auth__body__title__unEdp']")
+    welcome_msg = (By.XPATH, f"//h4[normalize-space()='Great to have you back!']")
 
     email_field = (By.XPATH, f"//input[@id='username']")
     password_field = (By.XPATH, f"//input[@id='password']")
 
     sing_in_btn = (By.XPATH, f"//button[normalize-space()='Sign in']")
 
-    new_here_label = (By.XPATH, f"/html/body/div[3]/div/div/form/div[4]/p")
+    new_here_label = (By.XPATH, f"//p[starts-with(@class, 'Style_tly__color__secondary')]")
     create_acc = (By.XPATH, f"//a[normalize-space()='Create a Templately account!']")
     forget_pass = (By.XPATH, f"//a[normalize-space()='Forgot password?']")
 

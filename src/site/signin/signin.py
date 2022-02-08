@@ -3,18 +3,18 @@ from selenium.webdriver import ActionChains
 
 from src.site.forgetpassword.forget_password import ForgetPassword
 from utils.helper import Helper
+from utils.configuration import Configuration
 from src.site.signin.signin_locators import SignInLocators as loc
 from src.site.signin.signin_locators import SignInText as txt
-from src.site.mycloud.my_cloud_locators import MyCloudLocators as mloc
+from src.site.mycloud.my_cloud_locators import DashboardLocators as dloc
 from src.site.mycloud.my_cloud_locators import MyCloudText as mtxt
 from src.site.home.home_page_locators import HomePageLocators as hloc
 from utils.set_users import User
 
 
-class SignIn(User, Helper):
-
-    def __init__(self, browser, config):
-        super().__init__(config)
+class SignIn(User, Helper, Configuration):
+    def __init__(self, browser, read_credentials):
+        super().__init__(read_credentials)
         self.browser = browser
         self.cursor = ActionChains(self.browser)
 
@@ -41,9 +41,10 @@ class SignIn(User, Helper):
 
             self.browser.find_element(*loc.sing_in_btn).click()
 
-            assert_that(self.browser.find_element(*mloc.title).text).is_equal_to(mtxt.title_text)
+            assert_that(self.browser.find_element(*dloc.title).text).is_equal_to(mtxt.title_text)
 
-    def signin_through_page(self):
+    def signin_through_page(self, url):
+        self.load(url)
         with soft_assertions():
             self.check_visibility(loc.icon, "Icon is not visible.")
             assert_that(self.browser.find_element(*loc.title).text).is_equal_to(txt.sign_in_title_txt)
@@ -62,5 +63,5 @@ class SignIn(User, Helper):
 
             self.browser.find_element(*loc.sing_in_btn).click()
 
-            assert_that(self.browser.find_element(*mloc.title).text).is_equal_to(mtxt.title_text)
+            assert_that(self.browser.find_element(*dloc.title).text).is_equal_to(mtxt.title_text)
 

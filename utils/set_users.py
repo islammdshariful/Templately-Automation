@@ -1,7 +1,7 @@
 
 class User:
-    def __init__(self, cred, email="", password=""):
-        self.cred = cred
+    def __init__(self, read_credentials, email="", password=""):
+        self.cred = read_credentials
         self.email = email
         self.password = password
 

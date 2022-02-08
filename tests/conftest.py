@@ -9,7 +9,7 @@ from selenium.webdriver.chrome.options import Options
 
 
 @pytest.fixture()
-def cred(scope='session'):
+def read_credentials(scope='session'):
     with open(str(sys.path[1]) + '/utils/credentials.json') as credentials:
         credential = json.load(credentials)
 

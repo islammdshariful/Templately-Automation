@@ -430,6 +430,7 @@ class HomePage(Helper):
     def check_homepage_content(self):
         self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
         time.sleep(1)
+        self.close_bar()
         with soft_assertions():
             # Header
             self.home_page_header_content()

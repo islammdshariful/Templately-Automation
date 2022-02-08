@@ -1,8 +1,15 @@
-from assertpy import assert_that
+import time
+
+from assertpy import assert_that, soft_assertions
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class Helper:
+    file_path = 'C:\\Users\\shari\\'
+    bar_close_button = (By.XPATH, f'//*[@id="__next"]/div[2]/button')
+
     def __init__(self, browser):
         self.browser = browser
 
@@ -15,14 +22,22 @@ class Helper:
         else:
             assert_that(1).is_equal_to(err_text)
 
+    def close_bar(self):
+        time.sleep(1)
+        if len(self.browser.find_elements(*self.bar_close_button)) > 0:
+            self.browser.find_element(*self.bar_close_button).click()
+
 
 class ToastMessage:
-    title = (By.XPATH, f'/html/body/div[1]/div[1]/div/div/div[1]/div[2]')
-    cross = (By.XPATH, f'/html/body/div[1]/div[1]/div/div/button')
+    toast_title = f"//div[@role='alert']"
+    cross = (By.XPATH, f"//button[@aria-label='close']//*[name()='svg']")
 
     def __init__(self, browser):
         self.browser = browser
 
     def check_toast_message(self, message):
-        assert_that(self.browser.find_element(*self.title).text).is_equal_to(message)
-        self.browser.find_element(*self.cross).click()
+        with soft_assertions():
+            WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.XPATH, self.toast_title)))
+            time.sleep(2)
+            assert_that(self.browser.find_element(By.XPATH, self.toast_title).text).is_equal_to(message)
+            self.browser.find_element(*self.cross).click()

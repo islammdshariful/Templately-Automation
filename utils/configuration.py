@@ -1,12 +1,12 @@
 
-class Config:
+class Configuration:
     display = 1
     LIVE = False
     DEV = False
     user = ""
 
-    def __init__(self, cred):
-        self.cred = cred
+    def __init__(self, read_credentials):
+        self.credential = read_credentials
 
     def set_env(self, env):
         if env.__eq__('live'):
@@ -40,7 +40,7 @@ class Config:
                 return 0
 
         if self.DEV:
-            cred_root = self.cred["dev"]["root"]
+            cred_root = self.credential["dev"]["root"]
             root = "https://templately.dev/"
             signup = root + "signup"
 
