@@ -45,9 +45,13 @@ def test_login_to_account_through_modal(browser, read_credentials):
 
 def test_my_workspace(browser):
     mc = MyWorkSpace(browser)
-    # mc.create_workspace()
-    # mc.edit_workspace()
-    # mc.delete_workspace('no')
+    mc.create_workspace()
+    # mc.edit_workspace_outside_folder()
+    # mc.edit_workspace_inside_folder()
+    # mc.delete_workspace_outside_folder()
+    # mc.delete_workspace_inside_folder()
+    # mc.check_workspace()
+    # mc.search_template_inside_workspace()
 
 
 def test_my_cloud(browser):
@@ -56,4 +60,5 @@ def test_my_cloud(browser):
     # cl.copy_to_workspace('elementor')
     # cl.move_to_workspace('elementor')
     # cl.delete_template('elementor')
-    cl.search_template()
+    # cl.search_template()
+    # cl.change_layout('layout')
