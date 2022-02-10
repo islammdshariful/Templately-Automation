@@ -6,8 +6,8 @@ from utils.helper import Helper
 from utils.configuration import Configuration
 from src.site.signin.signin_locators import SignInLocators as loc
 from src.site.signin.signin_locators import SignInText as txt
-from src.site.mycloud.my_cloud_locators import DashboardLocators as dloc
-from src.site.mycloud.my_cloud_locators import MyCloudText as mtxt
+from src.site.dashboard.dashboard_locators import DashboardLocators as dloc
+from src.site.dashboard.dashboard_locators import MyCloudText as mtxt
 from src.site.home.home_page_locators import HomePageLocators as hloc
 from utils.set_users import User
 

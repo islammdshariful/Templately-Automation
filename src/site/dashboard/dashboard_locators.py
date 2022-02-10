@@ -132,4 +132,3 @@ class MyCloudText:
     search_template_not_found_message = "You do not have any item with '" + search_invalid_template + "' in title"
     search_template_not_found_in_ws_message = "No files found in this WorkSpace."
     no_workspace_text = "You do not have any WorkSpace"
-    no_workspace_text = "You do not have any WorkSpace"

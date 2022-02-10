@@ -1,5 +1,7 @@
+from src.site.dashboard.dashboard import Dashboard
+from src.site.dashboard.my_workspace import MyWorkSpace
 from src.site.home.home_page import HomePage
-from src.site.mycloud.my_cloud import MyWorkSpace, Dashboard, MyCloud
+from src.site.dashboard.my_cloud import MyCloud
 from src.site.signin.signin import SignIn
 from src.site.signup.signup import SignUp
 from utils.configuration import Configuration
@@ -45,16 +47,16 @@ def test_login_to_account_through_modal(browser, read_credentials):
 
 def test_my_workspace(browser):
     mc = MyWorkSpace(browser)
-    # mc.create_workspace('testerbhaai@gmail.com')
-    # mc.edit_workspace_outside_folder()
-    # mc.edit_workspace_inside_folder()
-    # mc.delete_workspace_outside_folder('no')
-    # mc.delete_workspace_inside_folder('no)
-    # mc.check_workspace()
-    # mc.search_template_inside_workspace()
-    # mc.add_template_to_workspace('my_cloud')
-    # mc.share_workspace_outside_folder('testerbhaai+1@gmail.com')
-    # mc.share_workspace_inside_folder('testerbhaai+1@gmail.com')
+    mc.create_workspace('testerbhaai@gmail.com')
+    mc.edit_workspace_outside_folder()
+    mc.edit_workspace_inside_folder()
+    mc.delete_workspace_outside_folder('no')
+    mc.delete_workspace_inside_folder('no')
+    mc.check_workspace()
+    mc.search_template_inside_workspace()
+    mc.add_template_to_workspace('my_cloud')
+    mc.share_workspace_outside_folder('testerbhaai+1@gmail.com')
+    mc.share_workspace_inside_folder('testerbhaai+1@gmail.com')
 
 
 def test_my_cloud(browser):
