@@ -30,10 +30,12 @@ class MyWorkSpaceLocators:
     ws_name = (By.XPATH, f"//input[@placeholder='WorkSpace name']")
     ws_email = (By.XPATH, f"//input[@placeholder='Email Address']")
     ws_email_add = (By.XPATH, f"//button[normalize-space()='Add']")
-    ws_email_remove = (By.XPATH, f"//span[@class='Style_tly__close_button__pnto8']")
+    ws_email_remove = (By.XPATH, f"//span[starts-with(@class, 'Style_tly__close_button')]")
     ws_create_ws = (By.XPATH, f"//span[normalize-space()='Create WorkSpace']")
     # WorkSpace Folder
     ws_title = (By.XPATH, f'//a[starts-with(@class, "Style_tly__cloud__workspace__title")]')
+    ws_share = (By.XPATH, f"//button[starts-with(@class, 'Style_tly__cloud__share__list__item')]")
+    ws_share_with = (By.XPATH, f"//div[starts-with(@class, 'Grid_tly__d_flex')]//input")
     ws_menu = (By.XPATH, f"//button[starts-with(@class, 'Style_tly__dropdown__toggler__dot')]")
     ws_menu_edit = (By.XPATH, f"//li[normalize-space()='Edit']")
     ws_menu_delete = (By.XPATH, f"//li[normalize-space()='Delete']")
@@ -58,7 +60,7 @@ class MyWorkSpaceLocators:
     # Add Template
     add_template_to_ws = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__cloud__view__toggler')]//button[1]")
     # Source
-    add_template_to_ws_select_source = (By.XPATH, f"//div[@id='react-select-4-placeholder']")
+    add_template_to_ws_select_source = (By.XPATH, f"//div[normalize-space()='Select Source']")
     add_template_to_ws_select_source_my_cl = (By.XPATH, f"//div[starts-with(@Class, 'react-select__menu-list')]"
                                                         f"//div[1]")
     add_template_to_ws_select_source_my_ws = (By.XPATH, f"//div[starts-with(@Class, 'react-select__menu-list')]"
@@ -66,15 +68,15 @@ class MyWorkSpaceLocators:
     add_template_to_ws_select_source_sw = (By.XPATH, f"//div[starts-with(@Class, 'react-select__menu-list')]"
                                                      f"//div[3]")
     # WorkSpace
-    add_template_to_ws_select_ws = (By.XPATH, f"//div[@id='react-select-6-placeholder']")
+    add_template_to_ws_select_ws = (By.XPATH, f"//div[normalize-space()='Select WorkSpace']")
     add_template_to_ws_select_ws_0 = (By.XPATH, f"//div[starts-with(@Class, 'react-select__menu-list')]"
                                                 f"//div[1]")
     add_template_to_ws_select_ws_1 = (By.XPATH, f"//div[starts-with(@Class, 'react-select__menu-list')]"
                                                 f"//div[2]")
     # Template
-    add_template_to_ws_select_template = (By.XPATH, f"//div[@id='react-select-5-placeholder']")
-    add_template_to_ws_select_template_4 = (By.XPATH, f"//div[starts-with(@Class, 'react-select__menu-list')]"
-                                                      f"//div[4]")
+    add_template_to_ws_select_template = (By.XPATH, f"//div[normalize-space()='Select Templates']")
+    add_template_to_ws_select_template_0 = (By.XPATH, f"//div[starts-with(@Class, 'react-select__menu-list')]"
+                                                      f"//div[2]")
     add_template_button = (By.XPATH, f"//span[normalize-space()='Add to WorkSpace']")
 
     # Layout view
@@ -129,3 +131,5 @@ class MyCloudText:
     search_invalid_template = "Dummy Search is given, Expecting No Result."
     search_template_not_found_message = "You do not have any item with '" + search_invalid_template + "' in title"
     search_template_not_found_in_ws_message = "No files found in this WorkSpace."
+    no_workspace_text = "You do not have any WorkSpace"
+    no_workspace_text = "You do not have any WorkSpace"

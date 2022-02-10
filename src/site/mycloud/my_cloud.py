@@ -39,7 +39,7 @@ class MyWorkSpace(ToastMessage):
     def load(self, url):
         self.browser.get(url)
 
-    def create_workspace(self):
+    def create_workspace(self, add_people_email):
         self.browser.find_element(*d.d_workspace).click()
         self.browser.find_element(*ws.ws_add).click()
         today = date.today()
@@ -50,10 +50,10 @@ class MyWorkSpace(ToastMessage):
         self.browser.find_element(*ws.ws_name).clear()
         self.browser.find_element(*ws.ws_name).send_keys("WS " + name)
         self.browser.find_element(*ws.ws_email).clear()
-        self.browser.find_element(*ws.ws_email).send_keys("testerbhaai@gmail.com")
+        self.browser.find_element(*ws.ws_email).send_keys(add_people_email)
         self.browser.find_element(*ws.ws_email_add).click()
         self.browser.find_element(*ws.ws_email_remove).click()
-        self.browser.find_element(*ws.ws_email).send_keys("testerbhaai@gmail.com")
+        self.browser.find_element(*ws.ws_email).send_keys(add_people_email)
         self.browser.find_element(*ws.ws_create_ws).click()
         time.sleep(2)
         self.check_toast_message("WorkSpace created successfully")
@@ -101,15 +101,17 @@ class MyWorkSpace(ToastMessage):
         self.browser.find_element(*ws.ws_delete).click()
         time.sleep(2)
         self.check_toast_message("WorkSpace deleted successfully.")
+        assert_that(self.browser.find_element(*sloc.search_result_empty).text). \
+            is_equal_to(cltxt.no_workspace_text)
 
-    def delete_workspace_outside_folder(self):
+    def delete_workspace_outside_folder(self, delete_file):
         self.browser.find_element(*d.d_workspace).click()
-        self.delete_workspace('no')
+        self.delete_workspace(delete_file)
 
-    def delete_workspace_inside_folder(self):
+    def delete_workspace_inside_folder(self, delete_file):
         self.browser.find_element(*d.d_workspace).click()
         self.browser.find_element(*ws.ws_title).click()
-        self.delete_workspace('no')
+        self.delete_workspace(delete_file)
 
     def check_workspace(self):
         with soft_assertions():
@@ -147,6 +149,58 @@ class MyWorkSpace(ToastMessage):
             assert_that(template_name).is_equal_to(cltxt.search_template)
             self.browser.find_element(*sloc.search_close_button).click()
 
+    def add_template_to_workspace(self, source):
+        self.browser.refresh()
+        self.browser.find_element(*d.d_workspace).click()
+        self.browser.find_element(*ws.ws_title).click()
+
+        self.browser.find_element(*ws.add_template_to_ws).click()
+        time.sleep(1)
+        self.browser.find_element(*ws.add_template_to_ws_select_source).click()
+        if source.__eq__('my_cloud'):
+            self.browser.find_element(*ws.add_template_to_ws_select_source_my_cl).click()
+        elif source.__eq__('workspace'):
+            self.browser.find_element(*ws.add_template_to_ws_select_source_my_ws).click()
+            time.sleep(1)
+            self.browser.find_element(*ws.add_template_to_ws_select_ws).click()
+            self.browser.find_element(*ws.add_template_to_ws_select_ws_0).click()
+        else:
+            self.browser.find_element(*ws.add_template_to_ws_select_source_sw).click()
+            self.browser.find_element(*ws.add_template_to_ws_select_ws).click()
+            self.browser.find_element(*ws.add_template_to_ws_select_ws_0).click()
+
+        self.browser.find_element(*ws.add_template_to_ws_select_template).click()
+        time.sleep(1)
+        tmp_name = self.browser.find_element(*ws.add_template_to_ws_select_template_0).text
+        self.browser.find_element(*ws.add_template_to_ws_select_template_0).click()
+        time.sleep(1)
+        self.browser.find_element(*ws.add_template_button).click()
+        time.sleep(2)
+        assert_that(self.browser.find_element(*tloc.template_1_name).text).is_equal_to(tmp_name)
+
+    def share_workspace(self, email):
+        self.browser.find_element(*ws.ws_share_with).click()
+        self.browser.find_element(*ws.ws_share_with).clear()
+        self.browser.find_element(*ws.ws_share_with).send_keys(email)
+        self.browser.find_element(*ws.ws_email_add).click()
+        self.browser.find_element(*ws.ws_email_remove).click()
+        self.browser.find_element(*ws.ws_share_with).send_keys(email)
+        self.browser.find_element(*ws.ws_save).click()
+
+        self.check_toast_message('WorkSpace updated successfully.')
+
+    def share_workspace_outside_folder(self, email):
+        self.browser.refresh()
+        self.browser.find_element(*d.d_workspace).click()
+        self.browser.find_element(*ws.ws_share).click()
+        self.share_workspace(email)
+
+    def share_workspace_inside_folder(self, email):
+        self.browser.refresh()
+        self.browser.find_element(*d.d_workspace).click()
+        self.browser.find_element(*ws.ws_title).click()
+        self.browser.find_element(*ws.ws_my_file_ws_share).click()
+        self.share_workspace(email)
 
 
 class MyCloud(Helper, ToastMessage):

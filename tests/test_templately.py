@@ -45,13 +45,16 @@ def test_login_to_account_through_modal(browser, read_credentials):
 
 def test_my_workspace(browser):
     mc = MyWorkSpace(browser)
-    mc.create_workspace()
+    # mc.create_workspace('testerbhaai@gmail.com')
     # mc.edit_workspace_outside_folder()
     # mc.edit_workspace_inside_folder()
-    # mc.delete_workspace_outside_folder()
-    # mc.delete_workspace_inside_folder()
+    # mc.delete_workspace_outside_folder('no')
+    # mc.delete_workspace_inside_folder('no)
     # mc.check_workspace()
     # mc.search_template_inside_workspace()
+    # mc.add_template_to_workspace('my_cloud')
+    # mc.share_workspace_outside_folder('testerbhaai+1@gmail.com')
+    # mc.share_workspace_inside_folder('testerbhaai+1@gmail.com')
 
 
 def test_my_cloud(browser):

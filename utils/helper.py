@@ -38,6 +38,8 @@ class ToastMessage:
     def check_toast_message(self, message):
         with soft_assertions():
             WebDriverWait(self.browser, 10).until(EC.presence_of_element_located((By.XPATH, self.toast_title)))
-            time.sleep(2)
+
+            WebDriverWait(self.browser, 10).until(
+                EC.text_to_be_present_in_element((By.XPATH, self.toast_title), message))
             assert_that(self.browser.find_element(By.XPATH, self.toast_title).text).is_equal_to(message)
             self.browser.find_element(*self.cross).click()
