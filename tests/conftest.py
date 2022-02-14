@@ -16,6 +16,13 @@ def read_credentials(scope='session'):
     return credential
 
 
+@pytest.fixture()
+def open_file(scope='session'):
+    credentials = open(str(sys.path[1]) + '/utils/credentials.json')
+    # with open(str(sys.path[1]) + '/utils/credentials.json') as credentials
+    return credentials
+
+
 # This will run before all test case
 @pytest.fixture(scope='module')
 def browser():

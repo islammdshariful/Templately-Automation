@@ -125,6 +125,35 @@ class MyCloudLocators:
     view_list = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__cloud__view__toggler')]//button[2]")
 
 
+class ProfileLocators:
+    # Profile Menu
+    profile_info = (By.XPATH, f"//span[normalize-space()='Personal Info']")
+    change_pass = (By.XPATH, f"//span[normalize-space()='Change Password']")
+    payment_method = (By.XPATH, f"//span[normalize-space()='Payment Method']")
+    my_favorites = (By.XPATH, f"//span[normalize-space()='My Favorites']")
+    my_download = (By.XPATH, f"//span[normalize-space()='My Downloads']")
+
+    # Profile Info
+    browse_image = (By.XPATH, f"//label[starts-with(@class, 'Style_tly__image__browse__button')]")
+    input_image = (By.ID, f'myFile')
+    image_apply = (By.XPATH, f"//button[normalize-space()='Apply']")
+    image_remove = (By.XPATH, f"//button[starts-with(@class, 'Style_tly__image__preview__remove')]")
+    upload_button = (By.XPATH, f"//label[normalize-space()='Upload']")
+    remove_button = (By.XPATH, f"//button[normalize-space()='Remove']")
+    first_name = (By.XPATH, f"//input[@placeholder='First Name....']")
+    last_name = (By.XPATH, f"//input[@placeholder='Last Name....']")
+    email = (By.XPATH, f"//input[@placeholder='Primary Email....']")
+    update_button = (By.XPATH, f"//button[normalize-space()='Update']")
+    email_update_notice = (By.XPATH, "//p[contains(text(),'Your profile is updated successfully')]")
+    # Change Password
+    current_pass = (By.XPATH, f"//input[@id='currentpassword']")
+    new_pass = (By.XPATH, f"//input[@id='newpassword']")
+    con_new_pass = (By.XPATH, f"//input[@id='confirmpassword']")
+    change_pass_button = (By.XPATH, f"//button[normalize-space()='Change Password']")
+    # Payment Method
+    add_card = (By.XPATH, f"//button[starts-with(@class, 'Style_tly__payment__method__card')]")
+
+
 class MyCloudText:
     title_text = "My Cloud"
     search_template = "A1"

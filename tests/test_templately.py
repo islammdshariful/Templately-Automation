@@ -2,9 +2,11 @@ from src.site.dashboard.dashboard import Dashboard
 from src.site.dashboard.my_workspace import MyWorkSpace
 from src.site.home.home_page import HomePage
 from src.site.dashboard.my_cloud import MyCloud
+from src.site.dashboard.profile import Profile
 from src.site.signin.signin import SignIn
 from src.site.signup.signup import SignUp
 from utils.configuration import Configuration
+from datetime import datetime
 
 
 def test_home_page(browser, read_credentials):
@@ -67,3 +69,13 @@ def test_my_cloud(browser):
     # cl.delete_template('elementor')
     # cl.search_template()
     # cl.change_layout('layout')
+
+
+def test_profile(browser, read_credentials):
+    p = Profile(browser, read_credentials)
+    now = datetime.now()
+    lname = now.strftime("%A")
+    p.change_personal_info("Mr.", lname)
+    p.update_email('testerbhaai+1@gmail.com')
+    p.set_usr('user_1')
+    p.change_password('user_1', '123456Tmp')
