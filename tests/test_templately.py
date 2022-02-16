@@ -73,9 +73,9 @@ def test_my_cloud(browser):
 
 def test_profile(browser, read_credentials):
     p = Profile(browser, read_credentials)
-    now = datetime.now()
-    lname = now.strftime("%A")
-    p.change_personal_info("Mr.", lname)
-    p.update_email('testerbhaai+1@gmail.com')
+    # now = datetime.now()
+    # name = now.strftime("%A")
+    # p.change_personal_info("Mr.", name)
+    # p.update_email('testerbhaai+1@gmail.com')
     p.set_usr('user_1')
     p.change_password('user_1', '123456Tmp')

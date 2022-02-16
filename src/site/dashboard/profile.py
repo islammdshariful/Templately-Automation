@@ -61,13 +61,46 @@ class Profile(User, Helper, Configuration, ToastMessage):
             is_equal_to("Your profile is updated successfully. To change email, verify your new email. "
                         "Check inbox in " + email + " for instructions.")
 
-    def change_password(self, user, password):
-        self.browser.refresh()
-        self.browser.find_element(*dloc.d_profile).click()
-        self.browser.find_element(*ploc.change_pass).click()
+    def change_password_empty_input_given(self):
+        # Empty field
+        self.browser.find_element(*ploc.change_pass_button).click()
+        self.check_toast_message("Enter your current password")
+        time.sleep(1)
+        # Empty New password & Confirm Password
+        self.browser.find_element(*ploc.current_pass).send_keys("wrong password")
+        self.browser.find_element(*ploc.change_pass_button).click()
+        self.check_toast_message("At least 8 characters, uppercase, lowercase and number needed.")
+        time.sleep(1)
 
+    def change_password_wrong_password_given(self, password):
+        self.browser.find_element(*ploc.current_pass).send_keys("wrong password")
+        self.browser.find_element(*ploc.new_pass).send_keys(password)
+        self.browser.find_element(*ploc.con_new_pass).send_keys(password)
+        self.browser.find_element(*ploc.change_pass_button).click()
+        self.check_toast_message("Current password doesn't match")
+        time.sleep(1)
+
+    def change_password_same_password_given(self):
+        self.browser.find_element(*ploc.current_pass).click()
+        self.browser.find_element(*ploc.current_pass).send_keys(self.get_password())
+        self.browser.find_element(*ploc.new_pass).send_keys(self.get_password())
+        self.browser.find_element(*ploc.con_new_pass).send_keys(self.get_password())
+        self.browser.find_element(*ploc.change_pass_button).click()
+        self.check_toast_message("Password must differ from old password")
+        time.sleep(1)
+
+    def change_password_password_not_matching(self, password):
         self.browser.find_element(*ploc.current_pass).send_keys(self.get_password())
         self.browser.find_element(*ploc.new_pass).send_keys(password)
+        self.browser.find_element(*ploc.con_new_pass).send_keys(password + "foo")
+        self.browser.find_element(*ploc.change_pass_button).click()
+        self.check_toast_message("New password and confirmed password must match")
+        time.sleep(1)
+
+    def change_password_correct(self, user, password):
+        self.browser.find_element(*ploc.new_pass).clear()
+        self.browser.find_element(*ploc.new_pass).send_keys(password)
+        self.browser.find_element(*ploc.con_new_pass).clear()
         self.browser.find_element(*ploc.con_new_pass).send_keys(password)
         self.browser.find_element(*ploc.change_pass_button).click()
 
@@ -84,3 +117,18 @@ class Profile(User, Helper, Configuration, ToastMessage):
             with soft_assertions():
                 assert_that("success").is_equal_to("Password Not Changed.")
                 self.browser.find_element(By.XPATH, f"//button[@aria-label='close']//*[name()='svg']").click()
+
+    def change_password(self, user, password):
+        self.browser.refresh()
+        self.browser.find_element(*dloc.d_profile).click()
+        self.browser.find_element(*ploc.change_pass).click()
+        # Empty field
+        self.change_password_empty_input_given()
+        # Wrong Password
+        self.change_password_wrong_password_given(password)
+        # Same Password
+        self.change_password_same_password_given()
+        # Confirm not matching
+        self.change_password_password_not_matching(password)
+        # All Correct
+        self.change_password_correct(user, password)
