@@ -78,4 +78,6 @@ def test_profile(browser, read_credentials):
     # p.change_personal_info("Mr.", name)
     # p.update_email('testerbhaai+1@gmail.com')
     p.set_usr('user_1')
-    p.change_password('user_1', '123ABC456def')
+    # p.change_password('user_1', '123ABC456def')
+    p.set_env('dev')
+    p.payment_method()

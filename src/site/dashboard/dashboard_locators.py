@@ -152,6 +152,18 @@ class ProfileLocators:
     change_pass_button = (By.XPATH, f"//button[normalize-space()='Change Password']")
     # Payment Method
     add_card = (By.XPATH, f"//button[starts-with(@class, 'Style_tly__payment__method__card')]")
+    back_to_dashboard = (By.XPATH, f"//img[@alt='Templately logo']")
+    go_to_home = (By.XPATH, f"//a[normalize-space()='Go to home']")
+    #Stripe
+    stripe_email = (By.XPATH, f"//input[@id='email']")
+    stripe_card_number = (By.XPATH, f"//input[@id='cardNumber']")
+    stripe_card_expiry_date = (By.XPATH, f"//input[@id='cardExpiry']")
+    stripe_card_cvc_number = (By.XPATH, f"//input[@id='cardCvc']")
+    stripe_card_name = (By.XPATH, f"//input[@id='billingName']")
+    save_card = (By.XPATH, f"//button[@type='submit']")
+    # Success page
+    success_title = (By.XPATH, f"//h4[normalize-space()='Added Card Successfully']")
+    success_des = (By.XPATH, f"//p[normalize-space()='You have successfully added card in Stripe']")
 
 
 class MyCloudText:
