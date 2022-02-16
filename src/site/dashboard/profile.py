@@ -26,30 +26,47 @@ class Profile(User, Helper, Configuration, ToastMessage):
     def load(self, url):
         self.browser.get(url)
 
-    def change_personal_info(self, fname, lname):
-        self.browser.refresh()
-        self.browser.find_element(*dloc.d_profile).click()
-        self.browser.find_element(*ploc.profile_info).click()
-        self.browser.find_element(*ploc.input_image). \
-            send_keys(f"C:\\Users\\shari\\OneDrive\\Desktop\\for work\\img\\profile pictures\\man-profile.jpg")
+    def update_avatar(self):
+        self.browser.find_element(*ploc.remove_button).click()
+        time.sleep(1)
+        self.browser.find_element(*ploc.input_image).send_keys((sys.path[1]) + '/utils/avatar.jpg')
+        time.sleep(1)
         self.browser.find_element(*ploc.image_apply).click()
+        time.sleep(1)
         self.browser.find_element(*ploc.image_remove).click()
+        time.sleep(1)
+        self.browser.find_element(*ploc.remove_button).click()
 
-        self.browser.find_element(*ploc.input_image). \
-            send_keys(f"C:\\Users\\shari\\OneDrive\\Desktop\\for work\\img\\profile pictures\\man-profile.jpg")
+        self.browser.find_element(*ploc.input_image).send_keys((sys.path[1]) + '/utils/avatar.jpg')
         self.browser.find_element(*ploc.image_apply).click()
 
+    def update_name(self, fname, lname):
         self.browser.find_element(*ploc.first_name).clear()
         self.browser.find_element(*ploc.first_name).send_keys(fname)
         self.browser.find_element(*ploc.last_name).clear()
         self.browser.find_element(*ploc.last_name).send_keys(lname)
-        self.browser.find_element(*ploc.update_button).click()
 
+    def change_personal_info(self, fname, lname):
+        self.browser.refresh()
+        self.browser.find_element(*dloc.d_profile).click()
+        self.browser.find_element(*ploc.profile_info).click()
+        # Update Avatar
+        self.update_avatar()
+        # Update Name
+        self.update_name(fname, lname)
+        # Save Changes
+        self.browser.find_element(*ploc.update_button).click()
         self.check_toast_message('Your profile is updated successfully.')
 
     def update_email(self, email):
         self.browser.find_element(*dloc.d_profile).click()
         self.browser.find_element(*ploc.profile_info).click()
+        self.browser.find_element(*ploc.email).clear()
+        self.browser.find_element(*ploc.email).send_keys("thisisawrong@passowrd")
+        self.browser.find_element(*ploc.update_button).click()
+        time.sleep(1)
+        self.check_toast_message("Please provide a valid email format.")
+        time.sleep(1)
         self.browser.find_element(*ploc.email).clear()
         self.browser.find_element(*ploc.email).send_keys(email)
         self.browser.find_element(*ploc.update_button).click()
@@ -98,6 +115,8 @@ class Profile(User, Helper, Configuration, ToastMessage):
         time.sleep(1)
 
     def change_password_correct(self, user, password):
+        self.browser.find_element(*ploc.current_pass).clear()
+        self.browser.find_element(*ploc.current_pass).send_keys(self.get_password())
         self.browser.find_element(*ploc.new_pass).clear()
         self.browser.find_element(*ploc.new_pass).send_keys(password)
         self.browser.find_element(*ploc.con_new_pass).clear()
