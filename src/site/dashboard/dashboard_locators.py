@@ -154,13 +154,21 @@ class ProfileLocators:
     add_card = (By.XPATH, f"//button[starts-with(@class, 'Style_tly__payment__method__card')]")
     back_to_dashboard = (By.XPATH, f"//img[@alt='Templately logo']")
     go_to_home = (By.XPATH, f"//a[normalize-space()='Go to home']")
-    #Stripe
+    # Stripe
     stripe_email = (By.XPATH, f"//input[@id='email']")
     stripe_card_number = (By.XPATH, f"//input[@id='cardNumber']")
     stripe_card_expiry_date = (By.XPATH, f"//input[@id='cardExpiry']")
     stripe_card_cvc_number = (By.XPATH, f"//input[@id='cardCvc']")
     stripe_card_name = (By.XPATH, f"//input[@id='billingName']")
     save_card = (By.XPATH, f"//button[@type='submit']")
+    # Card
+    set_card_as_default = (By.XPATH, f"//span[normalize-space()='Set as Default']")
+    delete_card = (By.XPATH, f"//div[starts-with(@class,'Style_tly__payment__method__card__wrapper')]//div[1]//div[2]"
+                             f"//div[1]//button[1]//span[2]")
+    set_new_card_as_default = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__payment__method__card__wrapper')]"
+                                            f"//div[2]//div//button[2]//span")
+    delete_card_2 = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__payment__method__card__wrapper')]"
+                               f"//div[2]//div//button[1]")
     # Success page
     success_title = (By.XPATH, f"//h4[normalize-space()='Added Card Successfully']")
     success_des = (By.XPATH, f"//p[normalize-space()='You have successfully added card in Stripe']")

@@ -79,5 +79,8 @@ def test_profile(browser, read_credentials):
     # p.update_email('testerbhaai+1@gmail.com')
     p.set_usr('user_1')
     # p.change_password('user_1', '123ABC456def')
-    p.set_env('dev')
-    p.payment_method()
+    # p.set_env('dev')
+    # p.payment_method('4242 4242 4242 4242')
+    # p.payment_method('5555 5555 5555 4444')
+    # p.payment_method_remove_delete_card()
+

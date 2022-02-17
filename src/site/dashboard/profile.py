@@ -153,7 +153,7 @@ class Profile(User, Helper, Configuration, ToastMessage):
         # All Correct
         self.change_password_correct(user, password)
 
-    def payment_method(self):
+    def payment_method(self, card):
         self.browser.refresh()
         self.browser.find_element(*dloc.d_profile).click()
         self.browser.find_element(*ploc.payment_method).click()
@@ -163,7 +163,7 @@ class Profile(User, Helper, Configuration, ToastMessage):
             self.browser.find_element(*ploc.stripe_email).clear()
             self.browser.find_element(*ploc.stripe_email).send_keys(self.get_email())
             self.browser.find_element(*ploc.stripe_card_number).clear()
-            self.browser.find_element(*ploc.stripe_card_number).send_keys("4242 4242 4242 4242")
+            self.browser.find_element(*ploc.stripe_card_number).send_keys(card)
             self.browser.find_element(*ploc.stripe_card_expiry_date).clear()
             self.browser.find_element(*ploc.stripe_card_expiry_date).send_keys("444")
             self.browser.find_element(*ploc.stripe_card_cvc_number).clear()
@@ -178,5 +178,19 @@ class Profile(User, Helper, Configuration, ToastMessage):
         self.browser.find_element(*ploc.go_to_home).click()
         assert_that(self.browser.find_element(*dloc.title).text).is_equal_to(mtxt.title_text)
 
+    def payment_method_remove_delete_card(self):
+        if self.DEV:
+            self.browser.find_element(*dloc.d_profile).click()
+            self.browser.find_element(*ploc.payment_method).click()
 
+            self.browser.find_element(*ploc.set_card_as_default).click()
+            time.sleep(1)
+            assert_that(self.browser.find_element(*ploc.set_new_card_as_default).text).\
+                is_equal_to("Set as Default")
+            time.sleep(1)
+            self.browser.find_element(*ploc.delete_card_2).click()
+            time.sleep(1)
+
+            if len(self.browser.find_elements(*ploc.delete_card)) > 0:
+                assert_that("Success").is_equal_to("Card is not being deleted")
 
