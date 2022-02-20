@@ -82,5 +82,5 @@ def test_profile(browser, read_credentials):
     # p.set_env('dev')
     # p.payment_method('5555 5555 5555 4444')
     # p.payment_method_remove_delete_card()
-    # p.my_favorites('starter', 'blocks')
+    p.my_favorites('starter', 'block')
 

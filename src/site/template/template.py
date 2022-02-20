@@ -48,18 +48,19 @@ class Template(Helper):
         self.browser.back()
         time.sleep(1)
 
-    def check_template(self, title, price, cat, rate, down):
-        with soft_assertions():
-            assert_that(self.browser.find_element(*loc.title).text).is_equal_to(title)
-            assert_that(self.browser.find_element(*loc.img_cat).text).is_equal_to(price)
+    def check_template(self, category, title, price, cat, rate, down):
+        assert_that(self.browser.find_element(*loc.title).text).is_equal_to(title)
+        assert_that(self.browser.find_element(*loc.img_cat).text).is_equal_to(price)
+        if not category.__eq__('page'):
             assert_that(self.browser.find_element(*loc.category_name).text.upper()).is_equal_to(cat)
-            assert_that(self.browser.find_element(*loc.ratings_count).text).is_equal_to(rate)
-            assert_that(self.browser.find_element(*loc.download_count).text).is_equal_to(down)
+        time.sleep(2)
+        assert_that(self.browser.find_element(*loc.ratings_count).text).is_equal_to(rate)
+        assert_that(self.browser.find_element(*loc.download_count).text).is_equal_to(down)
 
-            self.check_visibility(loc.favourite_icon, "Favourite icon is not visible")
-            self.check_visibility(loc.download_icon, "Download icon is not visible")
-            self.check_visibility(loc.ratings_icon, "Ratings icon is not visible")
-            self.check_visibility(loc.submit_ratings_box, "Rating Box is not visible")
-            self.browser.back()
-            time.sleep(1)
+        self.check_visibility(loc.favourite_icon, "Favourite icon is not visible")
+        self.check_visibility(loc.download_icon, "Download icon is not visible")
+        self.check_visibility(loc.ratings_icon, "Ratings icon is not visible")
+        self.check_visibility(loc.submit_ratings_box, "Rating Box is not visible")
+        self.browser.back()
+        time.sleep(1)
 
