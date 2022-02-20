@@ -166,12 +166,36 @@ class ProfileLocators:
     delete_card = (By.XPATH, f"//div[starts-with(@class,'Style_tly__payment__method__card__wrapper')]//div[1]//div[2]"
                              f"//div[1]//button[1]//span[2]")
     set_new_card_as_default = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__payment__method__card__wrapper')]"
-                                            f"//div[2]//div//button[2]//span")
+                                         f"//div[2]//div//button[2]//span")
     delete_card_2 = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__payment__method__card__wrapper')]"
                                f"//div[2]//div//button[1]")
     # Success page
     success_title = (By.XPATH, f"//h4[normalize-space()='Added Card Successfully']")
     success_des = (By.XPATH, f"//p[normalize-space()='You have successfully added card in Stripe']")
+
+    # My Favorites
+    price_select = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__cloud__filter')]//div[1]//button[1]")
+    price_select_all = (By.XPATH, f"//div[normalize-space()='All']")
+    price_select_starter = (By.XPATH, f"//div[contains(text(),'Starter')]")
+    price_select_pro = (By.XPATH, f"//div[contains(text(),'Pro')]")
+    category_select = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__cloud__filter')]//div[2]//button[1]")
+    category_select_all = (By.XPATH, f"//div[normalize-space()='All']")
+    category_select_blocks = (By.XPATH, f"//div[contains(text(),'Blocks')]")
+    category_select_pages = (By.XPATH, f"//div[contains(text(),'Pages')]")
+    category_select_packs = (By.XPATH, f"//div[contains(text(),'Packs')]")
+
+    price_on_template = (By.XPATH, f"//div[starts-with(@class, 'Grid_tly__row__gutter__md__cols__2')]//div[1]//div//div"
+                                   f"//a//div//div//span")
+    image_on_template = f"//div[starts-with(@class, 'Grid_tly__row__gutter__md__cols__2')]//div[1]//div//div//a//div" \
+                        f"//span//img"
+    ratings_on_template = (By.XPATH, f"//div[starts-with(@class, 'Grid_tly__row__gutter__md__cols__2')]//div[1]//div"
+                                     f"//div//div//div[1]//button//span[2]")
+    downloads_on_template = (By.XPATH, f"//div[starts-with(@class, 'Grid_tly__row__gutter__md__cols__2')]//div[1]//div"
+                                       f"//div//div//div[2]")
+    category_on_template = (By.XPATH, f"//div[starts-with(@class, 'Grid_tly__row__gutter__md__cols__2')]//div[1]//div"
+                                      f"//div//div//div[3]")
+    title_on_template = (By.XPATH, f"//div[starts-with(@class, 'Grid_tly__row__gutter__md__cols__2')]//div[1]//div//div"
+                                   f"//a[2]//h4")
 
 
 class MyCloudText:

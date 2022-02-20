@@ -15,6 +15,7 @@ from utils.set_users import User
 from src.site.dashboard.dashboard_locators import DashboardLocators as dloc
 from src.site.dashboard.dashboard_locators import ProfileLocators as ploc
 from src.site.dashboard.dashboard_locators import MyCloudText as mtxt
+from src.site.template.template import Template
 
 
 class Profile(User, Helper, Configuration, ToastMessage):
@@ -191,6 +192,46 @@ class Profile(User, Helper, Configuration, ToastMessage):
             self.browser.find_element(*ploc.delete_card_2).click()
             time.sleep(1)
 
-            if len(self.browser.find_elements(*ploc.delete_card)) > 0:
+            while len(self.browser.find_elements(*ploc.delete_card)) > 0:
                 assert_that("Success").is_equal_to("Card is not being deleted")
+
+    def my_favorites(self, price, category):
+        self.browser.refresh()
+        self.browser.find_element(*dloc.d_profile).click()
+        self.browser.find_element(*ploc.payment_method).click()
+        self.browser.find_element(*ploc.my_favorites).click()
+
+        self.browser.find_element(*ploc.price_select).click()
+        if price.__eq__("starter"):
+            self.browser.find_element(*ploc.price_select_starter).click()
+        elif price.__eq__("pro"):
+            self.browser.find_element(*ploc.price_select_pro).click()
+        else:
+            self.browser.find_element(*ploc.price_select_all).click()
+
+        self.browser.find_element(*ploc.category_select).click()
+        if category.__eq__("blocks"):
+            self.browser.find_element(*ploc.category_select_blocks).click()
+        elif price.__eq__("pages"):
+            self.browser.find_element(*ploc.category_select_pages).click()
+        elif price.__eq__("packs"):
+            self.browser.find_element(*ploc.category_select_packs).click()
+        else:
+            self.browser.find_element(*ploc.category_select_all).click()
+
+        WebDriverWait(self.browser, 15).until(
+            EC.presence_of_element_located((By.XPATH, ploc.image_on_template)))
+
+        temp_price = self.browser.find_element(*ploc.price_on_template).text
+        temp_cat = self.browser.find_element(*ploc.category_on_template).text
+        temp_rate = self.browser.find_element(*ploc.ratings_on_template).text
+        temp_down = self.browser.find_element(*ploc.downloads_on_template).text
+        title = self.browser.find_element(*ploc.title_on_template)
+        temp_title = title.text
+        self.cursor.move_to_element(title).click().perform()
+        temp = Template(self.browser)
+        temp.check_template(temp_title, temp_price, temp_cat, temp_rate, temp_down)
+
+
+
 
