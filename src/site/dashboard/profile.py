@@ -1,6 +1,8 @@
 import json
 import sys
 import time
+import datetime
+from datetime import datetime
 
 from assertpy import assert_that, soft_assertions
 from selenium.common.exceptions import TimeoutException
@@ -186,7 +188,7 @@ class Profile(User, Helper, Configuration, ToastMessage):
 
             self.browser.find_element(*ploc.set_card_as_default).click()
             time.sleep(1)
-            assert_that(self.browser.find_element(*ploc.set_new_card_as_default).text).\
+            assert_that(self.browser.find_element(*ploc.set_new_card_as_default).text). \
                 is_equal_to("Set as Default")
             time.sleep(1)
             self.browser.find_element(*ploc.delete_card_2).click()
@@ -236,6 +238,27 @@ class Profile(User, Helper, Configuration, ToastMessage):
             temp = Template(self.browser)
             temp.check_template(category, temp_title, temp_price, temp_cat, temp_rate, temp_down)
 
+    def my_downloads(self):
+        self.browser.refresh()
+        self.browser.find_element(*dloc.d_profile).click()
+        self.browser.find_element(*ploc.payment_method).click()
+        self.browser.find_element(*ploc.my_download).click()
+        with soft_assertions():
+            temp_name = self.browser.find_element(*ploc.temp_1_item_name).text
+            temp_date = self.browser.find_element(*ploc.temp_1_download_date).text
 
+            day, month, year, at, time_24 = temp_date.split()
+            date_string = day + " " + month + " " + year
 
+            try:
+                # Checking Date
+                datetime.strptime(date_string, "%d %B, %Y")
+                # Checking Time
+                datetime.strptime(time_24, "%H:%M%p")
+            except ValueError:
+                assert_that("Success").is_equal_to("Date Time format doesn't matched.")
 
+            self.check_visibility(ploc.temp_1_thumbnail, "Thumbnail not visible.")
+            self.browser.find_element(*ploc.temp_1_item_name).click()
+            temp = Template(self.browser)
+            temp.check_template_title(temp_name)

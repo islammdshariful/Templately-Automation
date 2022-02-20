@@ -197,6 +197,11 @@ class ProfileLocators:
     title_on_template = (By.XPATH, f"//div[starts-with(@class, 'Grid_tly__row__gutter__md__cols__2')]//div[1]//div//div"
                                    f"//a[2]//h4")
 
+    # My Downloads
+    temp_1_thumbnail = f"//tbody[starts-with(@class, 'Table_tly__table_body')]//tr[1]//td[1]//span//span//img"
+    temp_1_item_name = (By.XPATH, f"//tbody[starts-with(@class, 'Table_tly__table_body')]//tr[1]//td[2]")
+    temp_1_download_date = (By.XPATH, f"//tbody[starts-with(@class, 'Table_tly__table_body')]//tr[1]//td[3]")
+
 
 class MyCloudText:
     title_text = "My Cloud"

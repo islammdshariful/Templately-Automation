@@ -1,6 +1,6 @@
 import time
 
-from assertpy import soft_assertions, assert_that
+from assertpy import assert_that
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from src.site.template.template_locators import TemplateLocators as loc
@@ -64,3 +64,7 @@ class Template(Helper):
         self.browser.back()
         time.sleep(1)
 
+    def check_template_title(self, title):
+        assert_that(self.browser.find_element(*loc.title).text).is_equal_to(title)
+        self.browser.back()
+        time.sleep(1)
