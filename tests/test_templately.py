@@ -1,6 +1,7 @@
 from src.site.dashboard.dashboard import Dashboard
 from src.site.dashboard.manage_api import ManageAPI
 from src.site.dashboard.my_workspace import MyWorkSpace
+from src.site.dashboard.subscription import Subscription
 from src.site.home.home_page import HomePage
 from src.site.dashboard.my_cloud import MyCloud
 from src.site.dashboard.profile import Profile
@@ -89,7 +90,12 @@ def test_profile(browser, read_credentials):
 
 def test_manage_api(browser):
     api = ManageAPI(browser)
-    api.create_token()
-    api.copy_token()
-    api.delete_token()
-    api.create_token()
+    # api.create_token()
+    # api.copy_token()
+    # api.delete_token()
+    # api.create_token()
+
+
+def test_subscription(browser):
+    subs = Subscription(browser)
+    subs.check_subscription('monthly')

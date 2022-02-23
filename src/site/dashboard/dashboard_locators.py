@@ -227,6 +227,60 @@ class ManageAPIsLocators:
     delete_modal_delete = (By.XPATH, f"//button[normalize-space()='Delete']")
 
 
+class SubscriptionLocators:
+    toggle_monthly = (By.XPATH, f"//button[@type='button'][normalize-space()='Monthly']")
+    toggle_annual = (By.XPATH, f"//button[@type='button'][normalize-space()='Annual']")
+    # Starter
+    monthly_pack_starter = f"//div[starts-with(@class, 'Pricing_tly__pricing__card__container_2')]//div[1]//div"
+
+    monthly_pack_starter_icon = monthly_pack_starter + f"//div[1]//div[1]//i"
+    monthly_pack_starter_title = monthly_pack_starter + f"//div[1]//div[2]//h5"
+    monthly_pack_starter_price = monthly_pack_starter + f"//div[1]//div[2]//p"
+
+    monthly_pack_starter_des = "(" + monthly_pack_starter + f"//div[2])[2]"
+    monthly_pack_starter_des_temp_count = monthly_pack_starter + f"//div[2]//p//span//a"
+    monthly_pack_starter_des_item_1_icon = monthly_pack_starter + f"//div[2]//ul//li[1]/i"
+    monthly_pack_starter_des_item_1_title = monthly_pack_starter + f"//div[2]//ul//li[1]"
+    monthly_pack_starter_des_item_2_icon = monthly_pack_starter + f"//div[2]//ul//li[2]/i"
+    monthly_pack_starter_des_item_2_title = monthly_pack_starter + f"//div[2]//ul//li[2]"
+    monthly_pack_starter_des_item_3_icon = monthly_pack_starter + f"//div[2]//ul//li[3]/i"
+    monthly_pack_starter_des_item_3_title = monthly_pack_starter + f"//div[2]//ul//li[3]"
+
+    monthly_pack_starter_status = monthly_pack_starter + f"div[3]//button"
+    # Premium
+    premium_pack_starter = f"//div[starts-with(@class, 'Pricing_tly__pricing__card__container_2')]//div[2]//div"
+
+    premium_pack_starter_icon = premium_pack_starter + f"//div[1]//div[1]//i"
+    premium_pack_starter_title = premium_pack_starter + f"//div[1]//div[2]//h5"
+    premium_pack_starter_price = premium_pack_starter + f"//div[1]//div[2]//p"
+
+    premium_pack_starter_des = "(" + premium_pack_starter + f"//div[2])[2]"
+    premium_pack_starter_des_temp_count = premium_pack_starter + f"//div[2]//p//span//a"
+    premium_pack_starter_des_item_1_icon = premium_pack_starter + f"//div[2]//ul//li[1]/i"
+    premium_pack_starter_des_item_1_title = premium_pack_starter + f"//div[2]//ul//li[1]"
+    premium_pack_starter_des_item_2_icon = premium_pack_starter + f"//div[2]//ul//li[2]/i"
+    premium_pack_starter_des_item_2_title = premium_pack_starter + f"//div[2]//ul//li[2]"
+
+    premium_pack_starter_status = premium_pack_starter + f"div[3]//button"
+    # Lifetime
+    lifetime_pack_starter = f"//div[starts-with(@class, 'Pricing_tly__pricing__card__container_2')]//div[3]//div"
+
+    lifetime_pack_starter_icon = lifetime_pack_starter + f"//div[1]//div[1]//i"
+    lifetime_pack_starter_title = lifetime_pack_starter + f"//div[1]//div[2]//h5"
+    lifetime_pack_starter_price = lifetime_pack_starter + f"//div[1]//div[2]//p"
+
+    lifetime_pack_starter_des = "(" + lifetime_pack_starter + f"//div[2])[2]"
+    lifetime_pack_starter_des_temp_count = lifetime_pack_starter + f"//div[2]//p//span//a"
+    lifetime_pack_starter_des_item_1_icon = lifetime_pack_starter + f"//div[2]//ul//li[1]/i"
+    lifetime_pack_starter_des_item_1_title = lifetime_pack_starter + f"//div[2]//ul//li[1]"
+    lifetime_pack_starter_des_item_2_icon = lifetime_pack_starter + f"//div[2]//ul//li[2]/i"
+    lifetime_pack_starter_des_item_2_title = lifetime_pack_starter + f"//div[2]//ul//li[2]"
+    lifetime_pack_starter_des_item_3_icon = lifetime_pack_starter + f"//div[2]//ul//li[3]/i"
+    lifetime_pack_starter_des_item_3_title = lifetime_pack_starter + f"//div[2]//ul//li[3]"
+
+    lifetime_pack_starter_status = lifetime_pack_starter + f"div[3]//button"
+
+
 
 class MyCloudText:
     title_text = "My Cloud"
