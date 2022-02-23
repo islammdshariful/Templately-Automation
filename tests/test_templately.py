@@ -99,3 +99,4 @@ def test_manage_api(browser):
 def test_subscription(browser):
     subs = Subscription(browser)
     subs.check_subscription('monthly')
+    subs.check_subscription('annual')

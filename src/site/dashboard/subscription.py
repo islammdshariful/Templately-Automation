@@ -59,12 +59,16 @@ class Subscription(Helper, ToastMessage):
         if self.browser.find_element(By.XPATH, sloc.monthly_pack_starter_des_item_1_title).is_displayed():
             assert_that("Success").is_equal_to("Starter items in not collapsing")
 
-    def check_premium_package(self):
+    def check_premium_package(self, type):
         self.check_visibility(sloc.premium_pack_starter_icon, "Premium Icon is not visible.")
         assert_that(self.browser.find_element(By.XPATH, sloc.premium_pack_starter_title).text).\
             is_equal_to(htxt.mon_prem_label_txt)
-        assert_that(self.browser.find_element(By.XPATH, sloc.premium_pack_starter_price).text).\
-            is_equal_to(htxt.mon_prem_price_txt + htxt.mon_prem_disc_price_txt)
+        if type.__eq__('monthly'):
+            assert_that(self.browser.find_element(By.XPATH, sloc.premium_pack_starter_price).text).\
+                is_equal_to(htxt.mon_prem_price_txt + htxt.mon_prem_disc_price_txt)
+        else:
+            assert_that(self.browser.find_element(By.XPATH, sloc.premium_pack_starter_price).text).\
+                is_equal_to(htxt.ann_prem_price_txt + htxt.ann_prem_disc_price_txt)
         # Template count
         self.check_visibility(sloc.monthly_pack_starter_des, "Premium Description is not visible.")
         items_count = self.browser.find_element(By.XPATH, sloc.premium_pack_starter_des_temp_count).text
@@ -126,8 +130,12 @@ class Subscription(Helper, ToastMessage):
                 self.browser.find_element(*sloc.toggle_monthly).click()
                 time.sleep(1)
                 self.check_starter_package()
-                self.check_premium_package()
+                self.check_premium_package('monthly')
                 self.check_lifetime_package()
             else:
-                pass
+                self.browser.find_element(*sloc.toggle_annual).click()
+                time.sleep(1)
+                self.check_starter_package()
+                self.check_premium_package('annual')
+                self.check_lifetime_package()
 
