@@ -40,6 +40,7 @@ class Profile(User, Helper, Configuration, ToastMessage):
         self.browser.find_element(*ploc.image_remove).click()
         time.sleep(1)
         self.browser.find_element(*ploc.remove_button).click()
+        self.browser.find_element(*ploc.remove_button).click()
 
         self.browser.find_element(*ploc.input_image).send_keys((sys.path[1]) + '/utils/avatar.jpg')
         self.browser.find_element(*ploc.image_apply).click()

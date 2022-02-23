@@ -43,3 +43,4 @@ class ToastMessage:
                 EC.text_to_be_present_in_element((By.XPATH, self.toast_title), message))
             assert_that(self.browser.find_element(By.XPATH, self.toast_title).text).is_equal_to(message)
             self.browser.find_element(*self.cross).click()
+            time.sleep(1)

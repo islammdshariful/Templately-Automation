@@ -1,4 +1,5 @@
 from src.site.dashboard.dashboard import Dashboard
+from src.site.dashboard.manage_api import ManageAPI
 from src.site.dashboard.my_workspace import MyWorkSpace
 from src.site.home.home_page import HomePage
 from src.site.dashboard.my_cloud import MyCloud
@@ -84,3 +85,11 @@ def test_profile(browser, read_credentials):
     # p.payment_method_remove_delete_card()
     # p.my_favorites('starter', 'block')
     # p.my_downloads()
+
+
+def test_manage_api(browser):
+    api = ManageAPI(browser)
+    api.create_token()
+    api.copy_token()
+    api.delete_token()
+    api.create_token()

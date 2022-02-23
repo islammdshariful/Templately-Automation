@@ -203,6 +203,31 @@ class ProfileLocators:
     temp_1_download_date = (By.XPATH, f"//tbody[starts-with(@class, 'Table_tly__table_body')]//tr[1]//td[3]")
 
 
+class ManageAPIsLocators:
+    token_name = (By.XPATH, f"//input[@placeholder='Pick something cool, short and catchy!']")
+    terms_of_services = (By.XPATH, f"//label[@for='condition']")
+    create_token = (By.XPATH, f"//button[normalize-space()='Create Token']")
+    # Modal
+    copy_token = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__color__primary')]//i[@class='ticon t-duplicate']")
+    token_label = f"//span[starts-with(@class, 'Style_tly__color__primary')]"
+    registered_token = f"//span[starts-with(@style, 'word-break: break-word;')]"
+    token_copied_condition = (By.XPATH, f"//span[contains(text(),'I confirm that I have copied this key and stored i')]")
+    wahoo_got_it_btn = (By.XPATH, f"//span[normalize-space()='Wahoo! got it']")
+
+    # API Token List
+    token_1_name = (By.XPATH, f"//div[starts-with(@class, 'Table_tly__table__row')]//div[1]")
+    token_1_api_key = (By.XPATH, f"//div[starts-with(@class, 'Table_tly__table__row')]//div[2]")
+    token_1_active_sites = (By.XPATH, f"//div[starts-with(@class, 'Table_tly__table__row')]//div[3]")
+
+    token_1_copy = (By.XPATH, f"//div[starts-with(@class, 'Table_tly__table__row')]//div[2]//div//span[2]//i")
+    token_1_delete = (By.XPATH, f"//div[starts-with(@class, 'Table_tly__table__row')]//div[2]//div//span[3]//i")
+
+    # Delete Token Modal
+    delete_modal_cancel = (By.XPATH, f"//button[normalize-space()='Cancel']")
+    delete_modal_delete = (By.XPATH, f"//button[normalize-space()='Delete']")
+
+
+
 class MyCloudText:
     title_text = "My Cloud"
     search_template = "A1"
