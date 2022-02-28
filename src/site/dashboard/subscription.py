@@ -11,7 +11,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from utils.helper import Helper, ToastMessage
+from src.site.checkout.checkout import Checkout
+from utils.helper import Helper
 from utils.configuration import Configuration
 from utils.set_users import User
 from src.site.dashboard.dashboard_locators import DashboardLocators as dloc
@@ -19,7 +20,7 @@ from src.site.dashboard.dashboard_locators import SubscriptionLocators as sloc
 from src.site.home.home_page_locators import HomePageTexts as htxt
 
 
-class Subscription(Helper, ToastMessage):
+class Subscription(Helper, Checkout):
     def __init__(self, browser):
         super().__init__(browser)
         self.browser = browser
@@ -138,4 +139,73 @@ class Subscription(Helper, ToastMessage):
                 self.check_starter_package()
                 self.check_premium_package('annual')
                 self.check_lifetime_package()
+
+    def upgrade_package(self, package, type=""):
+        with soft_assertions():
+            self.browser.find_element(*dloc.d_profile).click()
+            self.browser.find_element(*dloc.d_subscription).click()
+            if package.__eq__('premium') and type.__eq__('monthly'):
+                self.browser.find_element(*sloc.toggle_monthly).click()
+                self.browser.find_element(By.XPATH, sloc.premium_pack_starter_status_btn).click()
+                time.sleep(1)
+                self.check_checkout_information(package, type)
+            elif package.__eq__('premium') and type.__eq__('yearly'):
+                self.browser.find_element(*sloc.toggle_annual).click()
+                time.sleep(1)
+                self.browser.find_element(By.XPATH, sloc.premium_pack_starter_status_btn).click()
+                time.sleep(1)
+                self.check_checkout_information(package, type)
+            else:
+                self.browser.find_element(By.XPATH, sloc.lifetime_pack_starter_status_btn).click()
+                time.sleep(1)
+                self.check_checkout_information(package, type)
+
+    def check_renewal(self):
+        with soft_assertions():
+            self.browser.find_element(*dloc.d_profile).click()
+            self.browser.find_element(*dloc.d_subscription).click()
+            assert_that(self.browser.find_element(*sloc.renewal_notice).text).\
+                is_equal_to("Now you are using " + "PremiumMonthly" + " Plan. Your next payment is " + "$6.99" +
+                            ".To be charged on " + "March 28, 2022" + ". Your payment will be automatically charged"
+                                                                      " every " + "Month" + ".")
+
+    def chancel_renewal(self):
+        with soft_assertions():
+            self.browser.find_element(*dloc.d_profile).click()
+            self.browser.find_element(*dloc.d_subscription).click()
+            self.browser.find_element(*sloc.cancel_renewal_btn).click()
+            self.check_toast_message("Successfully canceled subscription.")
+            assert_that(self.browser.find_element(*sloc.renewal_notice).text).\
+                is_equal_to("You have cancelled your monthly subscription. Your plan will be downgraded to free on "
+                            "" + "March 28, 2022" + ".")
+
+    def resume_subscription(self):
+        with soft_assertions():
+            self.browser.find_element(*dloc.d_profile).click()
+            self.browser.find_element(*dloc.d_subscription).click()
+            self.browser.find_element(*sloc.resume_subscription_btn).click()
+            self.check_toast_message("Successfully resumed subscription.")
+
+    def downgrade_package(self, pack):
+        self.browser.find_element(*dloc.d_profile).click()
+        self.browser.find_element(*dloc.d_subscription).click()
+        if pack.__eq__('starter'):
+            self.browser.find_element(By.XPATH, sloc.monthly_pack_starter_status_btn).click()
+            assert_that(self.browser.find_element(*sloc.downgrade_title).text).is_equal_to("Are You Sure?")
+            assert_that(self.browser.find_element(*sloc.downgrade_des).text).\
+                is_equal_to("You will be immediately downgraded to starter plan.")
+            self.browser.find_element(*sloc.cancel_btn).click()
+            self.browser.find_element(By.XPATH, sloc.monthly_pack_starter_status_btn).click()
+            self.browser.find_element(*sloc.downgrade_btn).click()
+        else:
+            self.browser.find_element(By.XPATH, sloc.premium_pack_starter_status_btn).click()
+            assert_that(self.browser.find_element(*sloc.downgrade_title).text).is_equal_to("Are You Sure?")
+            assert_that(self.browser.find_element(*sloc.downgrade_des).text).\
+                is_equal_to("You will be immediately downgraded to starter plan.")
+            self.browser.find_element(*sloc.cancel_btn).click()
+            self.browser.find_element(By.XPATH, sloc.premium_pack_starter_status_btn).click()
+            self.browser.find_element(*sloc.downgrade_btn).click()
+
+        self.check_toast_message("Successfully downgraded to Starter.")
+
 

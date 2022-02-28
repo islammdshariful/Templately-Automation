@@ -181,6 +181,12 @@ class Profile(User, Helper, Configuration, ToastMessage):
         time.sleep(1)
         self.browser.find_element(*ploc.go_to_home).click()
         assert_that(self.browser.find_element(*dloc.title).text).is_equal_to(mtxt.title_text)
+        self.browser.find_element(*dloc.d_profile).click()
+        self.browser.find_element(*ploc.payment_method).click()
+        if len(self.browser.find_elements(*ploc.card_title)) > 0:
+            assert_that("Success").is_equal_to("Success")
+        else:
+            assert_that("Success").is_equal_to("Card not added.")
 
     def payment_method_remove_delete_card(self):
         if self.DEV:

@@ -1,3 +1,4 @@
+from src.site.checkout.checkout import Checkout
 from src.site.dashboard.dashboard import Dashboard
 from src.site.dashboard.manage_api import ManageAPI
 from src.site.dashboard.my_workspace import MyWorkSpace
@@ -79,10 +80,10 @@ def test_profile(browser, read_credentials):
     # name = now.strftime("%A")
     # p.change_personal_info("Mr.", name)
     # p.update_email('testerbhaai+1@gmail.com')
-    # p.set_usr('user_1')
+    p.set_usr('user_1')
     # p.change_password('user_1', '123ABC456def')
-    # p.set_env('dev')
-    # p.payment_method('5555 5555 5555 4444')
+    p.set_env('dev')
+    p.payment_method('5555 5555 5555 4444')
     # p.payment_method_remove_delete_card()
     # p.my_favorites('starter', 'block')
     # p.my_downloads()
@@ -98,5 +99,13 @@ def test_manage_api(browser):
 
 def test_subscription(browser):
     subs = Subscription(browser)
-    subs.check_subscription('monthly')
-    subs.check_subscription('annual')
+    subs.set_env('dev')
+    # subs.check_subscription('monthly')
+    # subs.check_subscription('annual')
+    # subs.upgrade_package('premium', 'monthly')
+    # subs.upgrade_package('premium', 'yearly')
+    # subs.upgrade_package('lifetime')
+    # subs.pay_with_method('default')
+    # subs.chancel_renewal()
+    # subs.resume_subscription()
+    # subs.downgrade_package("starter")

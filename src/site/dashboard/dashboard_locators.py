@@ -167,6 +167,7 @@ class ProfileLocators:
                              f"//div[1]//button[1]//span[2]")
     set_new_card_as_default = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__payment__method__card__wrapper')]"
                                          f"//div[2]//div//button[2]//span")
+    card_title = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__payment__method__card__wrapper')]//div[1]//div[2]")
     delete_card_2 = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__payment__method__card__wrapper')]"
                                f"//div[2]//div//button[1]")
     # Success page
@@ -246,7 +247,7 @@ class SubscriptionLocators:
     monthly_pack_starter_des_item_3_icon = monthly_pack_starter + f"//div[2]//ul//li[3]/i"
     monthly_pack_starter_des_item_3_title = monthly_pack_starter + f"//div[2]//ul//li[3]"
 
-    monthly_pack_starter_status = monthly_pack_starter + f"div[3]//button"
+    monthly_pack_starter_status_btn = monthly_pack_starter + f"//div[3]//button"
     # Premium
     premium_pack_starter = f"//div[starts-with(@class, 'Pricing_tly__pricing__card__container_2')]//div[2]//div"
 
@@ -261,7 +262,7 @@ class SubscriptionLocators:
     premium_pack_starter_des_item_2_icon = premium_pack_starter + f"//div[2]//ul//li[2]/i"
     premium_pack_starter_des_item_2_title = premium_pack_starter + f"//div[2]//ul//li[2]"
 
-    premium_pack_starter_status = premium_pack_starter + f"div[3]//button"
+    premium_pack_starter_status_btn = premium_pack_starter + f"//div[3]//button"
     # Lifetime
     lifetime_pack_starter = f"//div[starts-with(@class, 'Pricing_tly__pricing__card__container_2')]//div[3]//div"
 
@@ -278,7 +279,24 @@ class SubscriptionLocators:
     lifetime_pack_starter_des_item_3_icon = lifetime_pack_starter + f"//div[2]//ul//li[3]/i"
     lifetime_pack_starter_des_item_3_title = lifetime_pack_starter + f"//div[2]//ul//li[3]"
 
-    lifetime_pack_starter_status = lifetime_pack_starter + f"div[3]//button"
+    lifetime_pack_starter_status_btn = lifetime_pack_starter + f"//div[3]//button"
+
+
+    # Plan change notice
+    plan_change_notice = (By.XPATH, f"//div[starts-with(@class, 'Style_PlanChangeNotice__')]")
+    cancel_renewal_btn = (By.XPATH, f"//button[normalize-space()='Cancel Renewal']")
+    renewal_notice = (By.XPATH, f"//div[starts-with(@class, 'Pricing_tly__pricing__card__container_2')]//"
+                                f"div[4]//div//p")
+    resume_subscription_btn = (By.XPATH, f"//button[normalize-space()='Resume Subscription']")
+
+    # Downgrade popup
+    cancel_btn = (By.XPATH, f"//button[normalize-space()='Cancel']")
+    downgrade_btn = (By.XPATH, f"//div[starts-with(@class, 'Modal_tly__modal__body')]//div//button[2]")
+    downgrade_title = (By.XPATH, f"//h4[normalize-space()='Are You Sure?']")
+    downgrade_des = (By.XPATH, f"//div[starts-with(@class, 'Modal_tly__modal__body')]//p")
+
+
+
 
 
 

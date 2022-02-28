@@ -418,9 +418,13 @@ class HomePageTexts:
     mon_prem_pro_temp_items_label_txt = "732 PRO\nItems"
     mon_prem_list_1_txt = "My Cloud Unlimited Items"
     mon_prem_list_2_txt = "Unlimited WorkSpace"
+    mon_prem_discount_label = "Special discount 2021"
+    mon_prem_discount_percentage = "-30%"
 
     ann_prem_price_txt = "$199.99"
     ann_prem_disc_price_txt = "$59.99"
+    ann_prem_discount_label = "Get Started 2021"
+    ann_prem_discount_percentage = "-40%"
 
     lftm_label_txt = "LIFETIME"
     lftm_price_txt = "$999.99"
@@ -430,3 +434,5 @@ class HomePageTexts:
     lftm_list_1_txt = "My Cloud Unlimited Items"
     lftm_list_2_txt = "Unlimited WorkSpace"
     lftm_des_txt = "Pay Once, Use Forever"
+    lftm_prem_discount_label = "Get Started Lifetime"
+    lftm_prem_discount_percentage = "-70%"
