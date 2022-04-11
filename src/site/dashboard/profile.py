@@ -119,15 +119,7 @@ class Profile(User, Helper, Configuration, ToastMessage):
         self.check_toast_message("New password and confirmed password must match")
         time.sleep(1)
 
-    def change_password_correct(self, user, password):
-        self.browser.find_element(*ploc.current_pass).clear()
-        self.browser.find_element(*ploc.current_pass).send_keys(self.get_password())
-        self.browser.find_element(*ploc.new_pass).clear()
-        self.browser.find_element(*ploc.new_pass).send_keys(password)
-        self.browser.find_element(*ploc.con_new_pass).clear()
-        self.browser.find_element(*ploc.con_new_pass).send_keys(password)
-        self.browser.find_element(*ploc.change_pass_button).click()
-
+    def change_password_save_on_json(self, user, password):
         try:
             WebDriverWait(self.browser, 3).until(
                 EC.text_to_be_present_in_element((By.XPATH, "//div[@role='alert']"),
@@ -141,6 +133,29 @@ class Profile(User, Helper, Configuration, ToastMessage):
             with soft_assertions():
                 assert_that("success").is_equal_to("Password Not Changed.")
                 self.browser.find_element(By.XPATH, f"//button[@aria-label='close']//*[name()='svg']").click()
+
+    def change_password_correct(self, user, password):
+        current_password = self.get_password()
+        self.browser.find_element(*ploc.current_pass).clear()
+        self.browser.find_element(*ploc.current_pass).send_keys(self.get_password())
+        self.browser.find_element(*ploc.new_pass).clear()
+        self.browser.find_element(*ploc.new_pass).send_keys(password)
+        self.browser.find_element(*ploc.con_new_pass).clear()
+        self.browser.find_element(*ploc.con_new_pass).send_keys(password)
+        self.browser.find_element(*ploc.change_pass_button).click()
+        # Savings on JSON
+        self.change_password_save_on_json(user, password)
+        # Change back to old password
+        self.set_usr(user)
+        self.browser.find_element(*ploc.current_pass).clear()
+        self.browser.find_element(*ploc.current_pass).send_keys(self.get_password())
+        self.browser.find_element(*ploc.new_pass).clear()
+        self.browser.find_element(*ploc.new_pass).send_keys(current_password)
+        self.browser.find_element(*ploc.con_new_pass).clear()
+        self.browser.find_element(*ploc.con_new_pass).send_keys(current_password)
+        self.browser.find_element(*ploc.change_pass_button).click()
+        # Savings on JSON
+        self.change_password_save_on_json(user, current_password)
 
     def change_password(self, user, password):
         self.browser.refresh()
@@ -181,12 +196,13 @@ class Profile(User, Helper, Configuration, ToastMessage):
         time.sleep(1)
         self.browser.find_element(*ploc.go_to_home).click()
         assert_that(self.browser.find_element(*dloc.title).text).is_equal_to(mtxt.title_text)
-        self.browser.find_element(*dloc.d_profile).click()
-        self.browser.find_element(*ploc.payment_method).click()
-        if len(self.browser.find_elements(*ploc.card_title)) > 0:
-            assert_that("Success").is_equal_to("Success")
-        else:
-            assert_that("Success").is_equal_to("Card not added.")
+        if self.DEV:
+            self.browser.find_element(*dloc.d_profile).click()
+            self.browser.find_element(*ploc.payment_method).click()
+            if len(self.browser.find_elements(*ploc.card_title)) > 0:
+                assert_that("Success").is_equal_to("Success")
+            else:
+                assert_that("Success").is_equal_to("Card not added.")
 
     def payment_method_remove_delete_card(self):
         if self.DEV:

@@ -25,8 +25,7 @@ class DashboardLocators:
 
 class MyWorkSpaceLocators:
     # My WorkSpace
-    ws_add = (By.XPATH, f"//button[starts-with(@class, 'Style_tly__cloud__card__LefI_ "
-                        f"Style_tly__cloud__add__workspace__card')]")
+    ws_add = f"//button[starts-with(@class, 'Style_tly__cloud__card__LefI_ Style_tly__cloud__add__workspace__card')]"
     ws_name = (By.XPATH, f"//input[@placeholder='WorkSpace name']")
     ws_email = (By.XPATH, f"//input[@placeholder='Email Address']")
     ws_email_add = (By.XPATH, f"//button[normalize-space()='Add']")
@@ -95,9 +94,11 @@ class TemplateLocators:
     template_1_menu_move = (By.XPATH, f"//span[normalize-space()='Move to WorkSpace']")
     template_1_menu_delete = (By.XPATH, f"//span[normalize-space()='Delete']")
 
-    copy_move_modal_select_ws = (By.XPATH, f"//div[@id='react-select-3-placeholder']")
-    copy_move_modal_select_ws_0 = (By.ID, f'react-select-3-option-0')
-    copy_move_modal_select_ws_1 = (By.ID, f'react-select-3-option-1')
+    copy_move_modal_select_ws = (By.XPATH, f"//div[starts-with(@class, 'tly__select__option Modal_tly__select__option')]")
+    copy_move_modal_select_ws_0 = (By.XPATH, f"//div[starts-with(@class, 'react-select__menu-list')]//div[1]")
+    copy_move_modal_select_ws_1 = (By.XPATH, f"//div[starts-with(@class, 'react-select__menu-list')]//div[2]")
+    copy_move_modal_select_ws_2 = (By.XPATH, f"//div[starts-with(@class, 'react-select__menu-list')]//div[3]")
+
     copy_move_modal_select_ws_done = (By.XPATH, f"//span[normalize-space()='Done']")
 
     delete_modal_title = (By.XPATH, f"//h4[normalize-space()='Are You Sure?']")
@@ -107,7 +108,7 @@ class TemplateLocators:
 
 
 class SearchTemplateLocators:
-    search_input = (By.XPATH, f"//input[@placeholder='Search here . . . .']")
+    search_input = (By.XPATH, f"//input[@placeholder='Search here . . . ']")
     search_button = (By.XPATH, f"//button[contains(text(),'Search')]")
     search_close_button = (By.XPATH, f"//button[starts-with(@class, 'Style_search_close_button')]")
 
@@ -116,10 +117,10 @@ class SearchTemplateLocators:
 
 class MyCloudLocators:
     # Platform
-    select_platform = (By.XPATH, f"//div[@id='react-select-2-placeholder']")
-    platform_all = (By.ID, f'react-select-2-option-0')
-    platform_gutenberg = (By.ID, f'react-select-2-option-1')
-    platform_elementor = (By.ID, f'react-select-2-option-2')
+    select_platform = (By.XPATH, f"//div[starts-with(@class, 'react-select__indicators')]")
+    platform_all = (By.XPATH, f"//div[starts-with(@class, 'react-select__menu-list')]//div[1]")
+    platform_gutenberg = (By.XPATH, f"//div[starts-with(@class, 'react-select__menu-list')]//div[2]")
+    platform_elementor = (By.XPATH, f"//div[starts-with(@class, 'react-select__menu-list')]//div[3]")
 
     view_grid = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__cloud__view__toggler')]//button[1]")
     view_list = (By.XPATH, f"//div[starts-with(@class, 'Style_tly__cloud__view__toggler')]//button[2]")

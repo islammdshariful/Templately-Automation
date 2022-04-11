@@ -2,6 +2,8 @@ import os
 
 from assertpy import soft_assertions, assert_that
 from selenium.webdriver import ActionChains
+
+from src.site.dashboard.my_workspace import MyWorkSpace
 from utils.helper import ToastMessage, Helper
 from src.site.dashboard.dashboard_locators import MyCloudLocators as cl
 from src.site.dashboard.dashboard_locators import DashboardLocators as d
@@ -16,6 +18,7 @@ class MyCloud(Helper, ToastMessage):
         super().__init__(browser)
         self.browser = browser
         self.cursor = ActionChains(self.browser)
+        self.ws = MyWorkSpace(browser)
 
     def load(self, url):
         self.browser.get(url)
@@ -33,7 +36,7 @@ class MyCloud(Helper, ToastMessage):
         self.select_platform(platform)
         # Template
         template_name = self.browser.find_element(*tloc.template_1_name).text
-        # Download
+        # Open menu for Download
         self.browser.find_element(*tloc.template_1_menu).click()
         time.sleep(1)
         self.browser.find_element(*tloc.template_1_menu_download).click()
@@ -51,29 +54,36 @@ class MyCloud(Helper, ToastMessage):
             pass
         else:
             assert_that('Success').is_equal_to("%s isn't a file!" % file)
+        # Close menu
+        self.browser.find_element(*tloc.template_1_menu).click()
+        time.sleep(1)
 
     def copy_to_workspace(self, platform):
         self.browser.find_element(*d.d_cloud).click()
         # Select platform
         self.select_platform(platform)
         # Template
-        # template_name = self.browser.find_element(*tloc.template_1_name).text
-        # Copy
+        template_name = self.browser.find_element(*tloc.template_1_name).text
+        # Open menu to Copy
         self.browser.find_element(*tloc.template_1_menu).click()
         time.sleep(1)
         self.browser.find_element(*tloc.template_1_menu_copy).click()
+        time.sleep(1)
         self.browser.find_element(*tloc.copy_move_modal_select_ws).click()
         self.browser.find_element(*tloc.copy_move_modal_select_ws_0).click()
         self.browser.find_element(*tloc.copy_move_modal_select_ws_done).click()
 
         self.check_toast_message('File copied to WorkSpace successfully')
 
+        # Check template inside workspace
+        self.ws.check_template_inside_workspace(template_name)
+
     def move_to_workspace(self, platform):
         self.browser.find_element(*d.d_cloud).click()
         # Select platform
         self.select_platform(platform)
         # Template
-        # template_name = self.browser.find_element(*tloc.template_1_name).text
+        template_name = self.browser.find_element(*tloc.template_1_name).text
         # Move
         self.browser.find_element(*tloc.template_1_menu).click()
         time.sleep(1)
@@ -84,12 +94,15 @@ class MyCloud(Helper, ToastMessage):
 
         self.check_toast_message('File moved to WorkSpace successfully')
 
+        # Check template inside workspace
+        self.ws.check_template_inside_workspace(template_name)
+
     def delete_template(self, platform):
         self.browser.find_element(*d.d_cloud).click()
         # Select platform
         self.select_platform(platform)
-        # Template
-        # template_name = self.browser.find_element(*tloc.template_1_name).text
+        # Template name before deletion
+        template_name_before_deletion = self.browser.find_element(*tloc.template_1_name).text
         # Delete
         self.browser.find_element(*tloc.template_1_menu).click()
         time.sleep(1)
@@ -106,7 +119,13 @@ class MyCloud(Helper, ToastMessage):
 
         self.check_toast_message("My Cloud file deleted successfully.")
 
-    def search_template(self):
+        # Template name after deletion
+        template_name_after_deletion = self.browser.find_element(*tloc.template_1_name).text
+
+        if template_name_before_deletion.__eq__(template_name_after_deletion):
+            assert_that("Success").is_equal_to("Template deletion unsuccessful")
+
+    def search_template(self, query):
         with soft_assertions():
             self.browser.find_element(*d.d_cloud).click()
             self.browser.find_element(*sloc.search_input).click()
@@ -116,15 +135,16 @@ class MyCloud(Helper, ToastMessage):
                 is_equal_to(cltxt.search_template_not_found_message)
             self.browser.find_element(*sloc.search_close_button).click()
             self.browser.find_element(*sloc.search_input).click()
-            self.browser.find_element(*sloc.search_input).send_keys(cltxt.search_template)
+            self.browser.find_element(*sloc.search_input).send_keys(query)
             self.browser.find_element(*sloc.search_button).click()
             time.sleep(1)
 
             template_name = self.browser.find_element(*tloc.template_1_name).text
 
-            assert_that(template_name).is_equal_to(cltxt.search_template)
+            assert_that(template_name).is_equal_to(query)
 
     def change_layout(self, layout):
+        self.browser.find_element(*d.d_cloud).click()
         if layout.__eq__('grid'):
             self.browser.find_element(*cl.view_grid).click()
             time.sleep(1)

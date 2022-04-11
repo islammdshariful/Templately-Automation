@@ -1,5 +1,8 @@
 from assertpy import soft_assertions, assert_that
 from selenium.webdriver import ActionChains
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from utils.helper import ToastMessage, Helper
 from src.site.dashboard.dashboard_locators import MyWorkSpaceLocators as ws
 from src.site.dashboard.dashboard_locators import DashboardLocators as d
@@ -21,7 +24,10 @@ class MyWorkSpace(ToastMessage):
 
     def create_workspace(self, add_people_email):
         self.browser.find_element(*d.d_workspace).click()
-        self.browser.find_element(*ws.ws_add).click()
+        element = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.XPATH, ws.ws_add)))
+        # self.browser.find_element(*ws.ws_add).click()
+        element.click()
         today = date.today()
         now = datetime.now()
         day = today.strftime("%d-%m-%Y-")
@@ -59,6 +65,14 @@ class MyWorkSpace(ToastMessage):
         self.browser.find_element(*d.d_workspace).click()
         name = self.edit_workspace()
         assert_that(self.browser.find_element(*ws.ws_title).text).is_equal_to(name)
+
+    def check_template_inside_workspace(self, name):
+        self.browser.find_element(*d.d_workspace).click()
+        self.browser.find_element(*ws.ws_title).click()
+        template_name = self.browser.find_element(*tloc.template_1_name).text
+
+        if not template_name.__eq__(name):
+            assert_that("success").is_equal_to("Template name not matched")
 
     def edit_workspace_inside_folder(self):
         self.browser.find_element(*d.d_workspace).click()
@@ -103,7 +117,7 @@ class MyWorkSpace(ToastMessage):
             self.browser.find_element(*ws.back_to_workspace).click()
             assert_that(self.browser.find_element(*ws.ws_title).text).is_equal_to(workspace_name)
 
-    def search_template_inside_workspace(self):
+    def search_template_inside_workspace(self, query):
         with soft_assertions():
             workspace_name = self.browser.find_element(*ws.ws_title).text
             self.browser.find_element(*ws.ws_title).click()
@@ -120,13 +134,13 @@ class MyWorkSpace(ToastMessage):
 
             self.browser.find_element(*sloc.search_close_button).click()
             self.browser.find_element(*sloc.search_input).click()
-            self.browser.find_element(*sloc.search_input).send_keys(cltxt.search_template)
+            self.browser.find_element(*sloc.search_input).send_keys(query)
             self.browser.find_element(*sloc.search_button).click()
             time.sleep(1)
 
             template_name = self.browser.find_element(*tloc.template_1_name).text
 
-            assert_that(template_name).is_equal_to(cltxt.search_template)
+            assert_that(template_name).is_equal_to(query)
             self.browser.find_element(*sloc.search_close_button).click()
 
     def add_template_to_workspace(self, source):

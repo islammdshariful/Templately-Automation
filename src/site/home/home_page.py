@@ -64,6 +64,8 @@ class HomePage(Helper):
             self.check_visibility(loc.mon_sta_list_1_icon, "Annual starter List item 3 icon not Visible")
         self.browser.find_element(*loc.mon_sta_temp_items).click()
         time.sleep(1)
+        self.browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        time.sleep(1)
         assert_that(self.browser.find_element(*bloc.header).text).is_equal_to(btxt.header_txt)
         # assert_that(self.browser.current_url).is_equal_to(BASEURL_site + "all?package=starter&page=1")
         self.browser.back()
@@ -433,33 +435,33 @@ class HomePage(Helper):
         self.close_bar()
         with soft_assertions():
             # Header
-            self.home_page_header_content()
-
-            # Could Workspace
-            self.home_page_could_workspace_content()
-
-            # Insight
-            self.home_page_insight_content()
-
-            # Feature Items
-            self.home_page_feature_items_content()
-
-            # Trending Items
-            self.home_page_trending_items_content()
-
-            # The Feature of Building With Cloud
-            self.home_page_building_with_cloud_content()
-
-            # 1 License. Unlimited Templates.
-            # Monthly
-            self.check_pricing('monthly')
-            # Annual
-            self.check_pricing('annual')
-            # Life Time
-            self.check_lifetime_pricing()
-
-            # Menus
-            self.check_home_page_menus()
+            # self.home_page_header_content()
+            #
+            # # Could Workspace
+            # self.home_page_could_workspace_content()
+            #
+            # # Insight
+            # self.home_page_insight_content()
+            #
+            # # Feature Items
+            # self.home_page_feature_items_content()
+            #
+            # # Trending Items
+            # self.home_page_trending_items_content()
+            #
+            # # The Feature of Building With Cloud
+            # self.home_page_building_with_cloud_content()
+            #
+            # # 1 License. Unlimited Templates.
+            # # Monthly
+            # self.check_pricing('monthly')
+            # # Annual
+            # self.check_pricing('annual')
+            # # Life Time
+            # self.check_lifetime_pricing()
+            #
+            # # Menus
+            # self.check_home_page_menus()
 
             # Browse WordPress Templates
             self.home_page_browse_wordpress_template()

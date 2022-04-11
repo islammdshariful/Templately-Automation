@@ -56,6 +56,7 @@ def test_my_workspace(browser):
     mc.edit_workspace_outside_folder()
     mc.edit_workspace_inside_folder()
     mc.delete_workspace_outside_folder('no')
+    mc.create_workspace('testerbhaai@gmail.com')
     mc.delete_workspace_inside_folder('no')
     mc.check_workspace()
     mc.search_template_inside_workspace()
