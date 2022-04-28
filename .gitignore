@@ -1,2 +1,2 @@
-credentials.json
+utils/credentials.json
 tests/test_work_file.py
