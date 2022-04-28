@@ -33,7 +33,7 @@ def browser():
     # b = webdriver.Chrome(str(os.getenv('firefoxdriver')), chrome_options=opts)
     # b = webdriver.Chrome(chrome_options=opts)
     b.maximize_window()
-    b.implicitly_wait('10')
+    b.implicitly_wait('3')
 
     yield b
 
