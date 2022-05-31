@@ -37,9 +37,15 @@ class Template(Helper):
         assert_that(self.browser.find_element(*loc.ratings_count).text).is_equal_to(ratings_txt)
 
         if cat_txt == cat_frm_img_txt:
-            assert_that(self.browser.find_element(*loc.img_cat).text).is_equal_to(cat_txt)
+            if cat_txt.__eq__("PAGE"):
+                assert_that(self.browser.find_element(*loc.img_cat_for_page).text).is_equal_to(cat_txt)
+            else:
+                assert_that(self.browser.find_element(*loc.img_cat).text).is_equal_to(cat_txt)
         else:
-            assert_that(self.browser.find_element(*loc.img_cat).text).is_equal_to(cat_frm_img_txt)
+            if cat_txt.__eq__("PAGE"):
+                assert_that(self.browser.find_element(*loc.img_cat_for_page).text).is_equal_to(cat_frm_img_txt)
+            else:
+                assert_that(self.browser.find_element(*loc.img_cat).text).is_equal_to(cat_frm_img_txt)
 
         self.check_visibility(loc.favourite_icon, "Favourite icon is not visible")
         self.check_visibility(loc.download_icon, "Download icon is not visible")

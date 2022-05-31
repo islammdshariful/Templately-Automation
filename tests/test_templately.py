@@ -115,4 +115,5 @@ from datetime import datetime
 
 def test_my_work(browser):
     browse_templates = BrowseTemplates(browser)
-    browse_templates.search_with_popular_keys()
+    browse_templates.testcase()
+

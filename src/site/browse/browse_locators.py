@@ -61,23 +61,30 @@ class Templates:
     pagination_page_last = (By.XPATH, f"//div[starts-with(@class, 'Style_PaginationDiv')]//li[8]")
 
     templates = f"//div[starts-with(@class, 'ActiveFilter_tly__all__item__content')]//div[3]"
-    template_1 = templates + f"//div[1]//div"
-    template_1_slug_from_image = (By.XPATH, template_1 + f"//a[1]")
-    template_1_slug_from_title = (By.XPATH, template_1 + f"//a[2]")
-    template_1_name = (By.XPATH, template_1 + f"//a[2]//h4")
-    template_1_ratings = (By.XPATH, template_1 + f"//div//div[1]")
-    template_1_download = (By.XPATH, template_1 + f"//div//div[2]//span[2]")
-    template_1_category = (By.XPATH, template_1 + f"//div//div[3]//span")
-    template_1_type = (By.XPATH, template_1 + f"//a[1]//div[3]//div")
 
-    template_9 = templates + f"//div[9]//div"
-    template_9_slug_from_image = (By.XPATH, template_9 + f"//a[1]")
-    template_9_slug_from_title = (By.XPATH, template_9 + f"//a[2]")
-    template_9_name = (By.XPATH, template_9 + f"//a[2]//h4")
-    template_9_ratings = (By.XPATH, template_9 + f"//div//div[1]")
-    template_9_download = (By.XPATH, template_9 + f"//div//div[2]//span[2]")
-    template_9_category = (By.XPATH, template_9 + f"//div//div[3]//span")
-    template_9_type = (By.XPATH, template_9 + f"//a[1]//div[3]//div")
+    template_1 = templates + f"//div[1]//div//div"
+    template_1_slug_from_image = template_1 + f"//a[1]"
+    template_1_slug_from_title = template_1 + f"//a[2]"
+    template_1_name = template_1 + f"//a[2]//h4"
+    template_1_ratings = template_1 + f"//div//div[1]//button//span[2]"
+    template_1_ratings_icon = template_1 + f"//div//div[1]//button//span[1]"
+    template_1_download = template_1 + f"//div//div[2]//span[2]"
+    template_1_download_icon = template_1 + f"//div//div[2]//span[1]"
+    template_1_category = template_1 + f"//div//div[3]//span"
+    template_1_category_from_img = template_1 + f"//a[1]//div[1]//div"
+    template_1_type = template_1 + f"//a[1]//div[3]//div"
+
+    template_9 = templates + f"//div[9]//div//div"
+    template_9_slug_from_image = template_9 + f"//a[1]"
+    template_9_slug_from_title = template_9 + f"//a[2]"
+    template_9_name = template_9 + f"//a[2]//h4"
+    template_9_ratings = template_9 + f"//div//div[1]//button//span[2]"
+    template_9_ratings_icon = template_9 + f"//div//div[1]//button//span[1]"
+    template_9_download = template_9 + f"//div//div[2]//span[2]"
+    template_9_download_icon = template_9 + f"//div//div[2]//span[1]"
+    template_9_category = template_9 + f"//div//div[3]//span"
+    template_9_category_from_img = template_9 + f"//a[1]//div[1]//div"
+    template_9_type = template_9 + f"//a[1]//div[3]//div"
 
 
 class BrowseText:

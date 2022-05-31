@@ -6,6 +6,7 @@ class TemplateLocators:
     category = (By.XPATH, f"//p[starts-with(@class, 'SingleView_tly__meta__data')]//span")
     category_name = (By.XPATH, f"//p[starts-with(@class, 'SingleView_tly__meta__data')]//a")
     img_cat = (By.XPATH, f"//div[starts-with(@class, 'SingleView_tly__single__product__preview')]//div[1]//span")
+    img_cat_for_page = (By.XPATH, f"//div[starts-with(@class, 'SingleView_tly__single__product__preview')]//div[2]//span")
     favourite_icon = f"//i[starts-with(@class, 'ticon t-heart')]"
     favourite_count = (By.XPATH, f"//div[starts-with(@class, 'SingleView_tly__favorite__ratting')]//span[2]")
     download_icon = f"//i[starts-with(@class, 'ticon t-download')]"
