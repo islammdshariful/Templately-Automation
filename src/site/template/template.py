@@ -1,4 +1,5 @@
 import time
+from numerize import numerize
 
 from assertpy import assert_that
 from selenium.webdriver import ActionChains
@@ -20,6 +21,7 @@ class Template(Helper):
     def check_template_via_other_page(self, title, rate, rate_icon, download, download_icon, category, cat_img):
         ratings_txt = self.browser.find_element(By.XPATH, rate).text
         downloads_txt = self.browser.find_element(By.XPATH, download).text
+        normalize_downloads_txt = numerize.numerize(int(downloads_txt))
         ttl_txt = self.browser.find_element(By.XPATH, title).text
         cat_txt = self.browser.find_element(By.XPATH, category).text
         cat_frm_img_txt = self.browser.find_element(By.XPATH, cat_img).text
@@ -33,7 +35,7 @@ class Template(Helper):
         time.sleep(1)
         assert_that(self.browser.find_element(*loc.title).text).is_equal_to(ttl_txt)
         time.sleep(1)
-        assert_that(self.browser.find_element(*loc.download_count).text).is_equal_to(downloads_txt)
+        assert_that(self.browser.find_element(*loc.download_count).text).is_equal_to(normalize_downloads_txt)
         assert_that(self.browser.find_element(*loc.ratings_count).text).is_equal_to(ratings_txt)
 
         if cat_txt == cat_frm_img_txt:

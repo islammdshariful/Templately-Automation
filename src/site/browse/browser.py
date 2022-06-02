@@ -3,6 +3,7 @@ import time
 from assertpy import soft_assertions, assert_that
 from selenium.webdriver import Keys, ActionChains
 from selenium.webdriver.common.by import By
+from numerize import numerize
 
 from src.site.home.top_nav_bar import TopNavBar
 from src.site.template.template import Template
@@ -62,6 +63,7 @@ class BrowseTemplates(TopNavBar, Template):
 
     def search_query(self, query):
         self.browser.find_element(*search.search_field).click()
+        self.browser.find_element(*search.search_field).clear()
         self.browser.find_element(*search.search_field).send_keys(query)
         time.sleep(1)
         self.browser.find_element(*search.search_button).click()
@@ -92,8 +94,13 @@ class BrowseTemplates(TopNavBar, Template):
                                            tmp.template_9_category_from_img)
         self.clear_all_filter()
 
+    def test_me(self):
+        text = self.browser.find_element(By.XPATH, tmp.template_1_download).text
+        normalize_downloads_txt = numerize.numerize(int(text))
+        print(normalize_downloads_txt)
+
     def testcase(self):
         with soft_assertions():
-            # self.search_with_popular_keys()
-            self.search_template("book store")
-
+            self.search_with_popular_keys()
+            # self.search_template("book store")
+            # self.test_me()
